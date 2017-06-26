@@ -1,0 +1,307 @@
+\begin{definizione}
+Sia $X$ un insieme non vuoto. Si dice permutazione su $X$ ogni applicazione bigettiva di $X$ in se stesso. \cite{permutazione1}
+\end{definizione}
+
+\begin{osservazione}
+NOTAZIONE - FORMA MATRICIALE
+
+In generale, per indicare una permutazione si usano le lettere greche minuscole, es. $\sigma$, e la cosiddetta notazione matriciale,
+nella quale sono riportarte (nella seconda riga) le immagini secondo $\sigma$ degli elementi di $X$ (scritti nella prima riga):
+\[
+\left(
+ \begin{array}{cccc}
+  1 & 2 & ... & n \\
+  \sigma(1) & \sigma(2) & ... & \sigma(n)
+ \end{array}
+\right)
+\] 
+
+\end{osservazione}
+
+\begin{osservazione}
+ NOTAZIONE (2) - CICLI
+ 
+see \href{./PermutazioneCicli.html}{Ciclo di una permutazione}
+\end{osservazione}
+
+
+\section{PERMUTAZIONE IDENTICA - ELEMENTO NEUTRO RISPETTO ALLA COMPOSIZIONE DI PERMUTAZIONI}
+In questa notazione, l'applicazione identica corrisponde ad una matrice con due righe uguali:
+\[
+\left(
+ \begin{array}{cccc}
+  1 & 2 & ... & n \\
+  1 & 2 & ... & n \\
+ \end{array}
+\right)
+\]
+
+Indicheremo tale applicazione (detta permutazione identica), più semplicemente, con il simbolo $id$. \cite{permutazione1}
+
+\section{INVERSA DI UNA PERMUTAZIONE}
+per ottenere l’inversa di una permutazione basta scambiare la prima e la seconda riga e riordinare la prima. \cite{permutazione2}
+
+\section{INSIEME DELLE PERMUTAZIONI}
+Denoteremo con $S(X)$ l'insieme delle permutazioni su $X$. \cite{permutazione1}
+
+Il numero di elementi di $S(X)$ è uguale a $n!$, dove $n$ è il numero di elementi dell'insieme $X$.
+
+\section{NOTE}
+Una permutazione è una funzione
+
+\section{APPROFONDIMENTI}
+\begin{itemize}
+ \item \href{./pdf/PERMUTAZIONE/lezione4.pdf}{DISPENSA: Gruppi di permutazioni} \cite{permutazione1}
+ \item \href{./pdf/PERMUTAZIONE/permutazioni.pdf}{DISPENSA: Permutazioni} \cite{permutazione2}
+ \item \href{http://www.dm.uniba.it/~barile/Rete4/algebra1_pdf/lezione18.pdf}{DISPENSA: Orbite e cicli di una permutazione.} \cite{permutazione4}
+ \item \href{http://progettomatematica.dm.unibo.it/Permutazioni/homepg.htm}{PROGETTO MATEMATICA: Permutazioni} \cite{permutazione3}
+\end{itemize}
+
+\section{DEFINIZIONE (1)}
+Per ciclo di una permutazione si intende il nome della notazione utilizzata per rappresentare una permutazione.
+
+\section{DEFINIZIONE (2)}
+Sia $n$ un intero positivo. Si dice ciclo (o permutazione ciclica) ogni $\sigma \in S_n$ per cui esistono un intero
+positivo $l$ e $a_1, ..., a_l \in \{1, ..., n\}$ a due a due distinti tali che
+\begin{itemize}
+ \item $\sigma(a_1)=a_2, \sigma(a_2)=a_3, ..., \sigma(a_l)=a_1$;
+ \item $\sigma(k)=k$ per ogni $k \in \{1, ..., n\} \setminus \{a_1, ..., a_l\}$.
+\end{itemize}
+Il numero $l$ si dice lunghezza di $\sigma$. Una permutazione ciclica di lunghezza $l$ si dice anche l-ciclo.
+
+\section{DEFINIZIONE (3)}
+Sia $r$ un intero positivo, $2 \leq r \leq n $ e siano dati $r$ elementi distinti $i_1, i_2, ..., i_r \in X=\{1,2,...,n\}$.
+Col simbolo $\gamma = (i_1 i_2 ... i_r)$ si denoti la permutazione $\gamma \in S_n$ tale che:
+\begin{enumerate}
+ \item $\gamma (i_k) = i_k$ se $i_k \notin \{i_1, i_2, ..., i_r\}$
+ \item $\gamma(i_k)=i_{k+1}$ se $1 \leq k \leq r-1$
+ \item $\gamma (i_r)=i_1$
+\end{enumerate}
+Tale permutazione è detta ciclo di lunghezza $r$.
+Se il ciclo ha lunghezza 2 viene detto trasposizione o scambio.
+
+\subsection{NOTE}
+Il solo ciclo di lunghezza 1 è la permutazione identica.
+
+Il ciclo di lunghezza 2 è detto trasposizione o scambio.
+
+La scrittura ciclica di un l-ciclo non è unica. Se $l>1$, il ciclo ammette esattamente $l$ scritture cicliche distinte,
+ottenute tramite rotazioni successive degli indici verso sinistra.
+
+\section{NOTAZIONE}
+Un ciclio è una lista di indici fra parentesi, e conveniamo che rappresenti la permutazione che associa a ogni indice nel ciclo
+quello successivo.
+
+\section{ESEMPIO}
+Ad esempio, il ciclo
+\[
+ (12345)
+\]
+rappresenta la permutazione che manda 1 in 2, 2 in 3 e così via fino a 5 in 1. Due cicli sono disgiunti se non hanno lettere in comune.
+Per esempio, (123) e (45) sono disgiunti, ma (123) e (124) no. 
+
+\section{COMPOSIZIONE DI PERMUTAZIONI = PRODOTTO DI CICLI}
+Per scrivere la composizione di permutazioni rappresentate da cicli,
+basta scrivere i cicli di seguito.
+
+Non è difficile calcolare la permutazione risultante da una composizione di cicli: basta, per ogni lettera, "seguire il suo destino" lungo
+i vari cicli. Per esempio,
+\[
+ (123)(135)(24) = \left(\begin{array}{ccccc}
+                         1 & 2 & 3 & 4 & 5 \\
+                         4 & 5 & 3 & 2 & 1 Cicli\\
+                        \end{array} \right)
+\]
+Come abbiamo fatto il conto? Cominciamo da 1: il primo ciclo manda 1 in 2, il secondo non tocca il 2, il terzo manda 2 in 4: concludiamo
+che i tre cicli mandano 1 in 4. Il primo ciclo manda 2 in 3, il secondo 3 in 5, e il terzo non tocca 5: concludiamo che i tre cicli
+mandano 2 in 5, e così via. Notate che alla fine del conto c'è un controllo di coerenza molto semplice:  tutti i numeri
+nella seconda riga devono essere distinti.
+
+\section{APPRFONDIMENTI}
+\begin{itemize}
+ \item DISPENSA: Orbite e cicli di una permutazione \cite{permutazione4}
+ \item DISPENSA: Permutazioni \cite{permutazione2}
+\end{itemize}
+
+
+
+\section{DEFINIZIONE}
+Decomporre una permutazione in cicli disgiunti vuol dire rappresentarla sotto forma di cicli.
+
+\section{ESEMPIO}
+Come fare a ottenere una rappresentazione in cicli di una permutazione? Basta "seguire" una lettera qualunque fino a trovare
+un ciclo: per esempio, in 
+\[
+\left( \begin{array}{cccc} 1 & 2 & 3 & 4 \\ 3 & 1 & 2 & 4 \\ \end{array} \right) 
+\]
+abbiamo che 1 va in 3, 3 va in 2 e 2 va in 1; quindi il primo ciclo che troviamo è (123). A questo punto non ci rimane che 4,
+che però va in sé, e formerebbe un ciclo di lunghezza 1. I cicli di lunghezza 1 per convenzione non si scrivono, e
+quindi la permutazione si scrive (123).
+
+NB: Secondo me se segui questo procedimento per forza di cose devi trovare cicli disgiunti.
+
+\section{APPROFONDIMENTI}
+\begin{itemize}
+ \item DISPENSA: Permutazioni \cite{permutazione2}
+ \item DISPENSA: Orbite e cicli di una permutazione \cite{permutazione4}
+ \item DISPENSA: Lezione 9 \url{http://www.science.unitn.it/~luminati/didattica/md/1998/diario/Lezione_9.htm}
+ \item ESERCIZI SVOLTI: Algebra 1 \url{http://www.mat.uniroma3.it/users/gabelli/AL1_06_07/soluzioni2esonero.pdf}
+\end{itemize}
+
+
+
+\section{DEFINIZIONE}
+Data una qualsiasi permutazione, il suo periodo sarà il minimo comune multiplo dei periodi dei cicli disgiunti in cui essa si decompone. 
+
+\section{NOTAZIONE}
+
+\section{ESEMPIO}
+
+\section{APPROFONDIMENTI}
+\begin{itemize}
+ \item FAQ \url{https://it.answers.yahoo.com/question/index?qid=20090214091406AAUSspi}
+\end{itemize}
+
+
+
+
+\section{INTRODUZIONE}
+Ogni permutazione di $S_n$, $n>2$, è prodotto di trasposizioni. Osserviamo però che tali trasposizioni possono non essere
+disgiunte ed inoltre la rappresentazione di una permutazione como prodotto di trasposizioni non è unica. Ad esempio, la permutazione
+$\alpha=(123)$, si può scrivere come: $\alpha=(13)(12)=(12)(23)=(23)(13)$. Il teorema del segno di una permutazione ci dice
+però che la parità (ovvero il segno) di una permutazione rimane la stessa.
+
+\section{DEFINIZIONE}
+Sia $\alpha \in S_n$, $n \geq 2$. Si dice che $\alpha$ è pari se è prodotto di un numero pari di trasposizioni, dispari se è prodotto di un 
+numero dispari di trasposizioni.
+
+Inoltre si dice che il segno di $\alpha$, $sgn(\alpha)$, è 1 se $\alpha$ è pari, -1 se $\alpha$ è dispari.
+
+\section{NOTAZIONE}
+
+\section{ESEMPIO}
+
+\section{APPROFONDIMENTI}
+\begin{itemize}
+ \item \url{http://progettomatematica.dm.unibo.it/Permutazioni/fr6.htm}
+\end{itemize}
+
+
+
+
+\section{DEFINIZIONE}
+L'ordine o periodo di un ciclo è uguale al numero di elementi del ciclo.
+
+\section{NOTAZIONE}
+
+\section{ESEMPIO}
+Il ciclo (123) ha ordine 3.
+
+\section{APPROFONDIMENTI}
+\begin{itemize}
+ \item FAQ \href{https://it.answers.yahoo.com/question/index?qid=20090214091406AAUSspi}{https://it.answers.yahoo.com/question/index?qid=20090214091406AAUSspi}
+ \item TESI: Il gruppo simmetrico $S_n$ \cite{simmetrico1}
+\end{itemize}
+
+
+
+
+\section{DEFINIZIONE}
+Un 2-ciclo si chiama anche scambio o trasposizione
+
+\section{NOTAZIONE}
+
+\section{ESEMPIO}
+(12)
+
+\section{APPROFONDIMENTI}
+\begin{itemize}
+ \item \url{http://web.tiscali.it/algebraastratta/mInsiemi/Permutazioni.htm}
+\end{itemize}
+
+
+
+
+\section{DEFINIZIONE}
+Due permutazioni $\alpha$ e $\beta$ si definiscono disgiunte se gli oggetti che non sono fissi per una permutazione
+sono fissi per l'altra, ovvere se:
+\[
+ (X \setminus F(\alpha))\cap (X \setminus F(\beta))=\o{}
+\]
+
+
+\section{NOTAZIONE}
+
+\section{ESEMPIO 1}
+Per esempio, (123) e (45) sono disgiunti, ma (123) e (124) no. 
+
+\section{ESEMPIO 2}
+In $S_{8}$, $\alpha = \left( \begin{array}{cccccccc} 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ 3 & 2 & 4 & 7 & 5 & 6 & 1 & 8 \\ \end{array} \right)$
+e $\beta = \left( \begin{array}{cccccccc} 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\ 1 & 8 & 3 & 4 & 5 & 6 & 2 & 8 \\ \end{array} \right)$
+sono disgiunte, infatti $\{ 1,3,4,7 \} \cap \{ 2,8 \} = \o{}$
+
+\section{APPROFONDIMENTI}
+\begin{itemize}
+ \item TESI DI LAUREA: Il gruppo simmetrico $S_{n}$ \cite{simmetrico1}
+\end{itemize}
+
+
+
+
+\section{DEFINITION}
+A derangement is a permutation of the elements of a set, such that no element appears in its original 
+position. \cite{derangement}
+
+\section{NOTATION}
+The number of derangement of a set of size $n$, usually written $D_{n}$, $d_{n}$, or $!n$, is called the "derangement number" or
+"de Montmort number". (These numbers are generalized to rencontres numbers). \cite{derangement}
+
+The number of derangements of an n-element set is called the nth derangement number or rencontres number, or the subfactorial
+of n and is sometimes denoted $!n$ or $D_{n}$
+
+\section{FORMULA DERANGEMENT}
+\[
+ d_{n} = n!\sum^{n}_{i=0} \frac{(-1)^i}{i!}
+\]
+
+\section{FORMULA PARTIAL DERANGEMENT}
+La formula precendente è utilizzata quando vogliamo il numero delle permutazioni (o casi favorevoli, a volte negli esercizi) che hanno fixed point uguale a 0.
+In generale per $k>0$ dove $k$ rappresenta il numero di fixed point, la formula diventa:
+
+\[
+ d_{n,k} = \frac{n!}{k!}\sum^{n}_{i=0} \frac{(-1)^i}{i!}
+\]
+
+\section{NOTE}
+In altre parole, il derangment è un sottoinsieme dell'insieme delle permutazioni formato dalle permutazioni che non hanno punti fissi, cioè 
+in cui nessun elemento è al suo posto.
+
+\section{HISTORY}
+The problem of counting derangements was first considered by Pierre Raymond de Montmort in 1708; he solved it in 1713, as did
+Nicholas Bernoulli at about the same time. \cite{derangement}
+
+\section{APPROFONDIMENTI}
+\begin{itemize}
+ \item \href{https://en.wikipedia.org/wiki/Derangement}{WIKIPEDIA: Derangement}
+ \item \href{./pdf/DERANGEMENT/derangementLucchini.pdf}{DISPENSA: Derangement.pdf}
+ \item \href{http://oeis.org/wiki/Number_of_derangements}{OEIS: Number of derangement}
+\end{itemize}
+
+
+
+
+\section{DEFINIZIONE}
+Il principio di inclusione-esclusione è un'identità che mette in relazione la cardinalità di un insieme, espresso come unione di insiemi finiti,
+con le cardinalità di instersezioni tra questi insiemi.
+
+\section{HISTORY}
+IL principio è stato utilizzato da Nicolaus II Bernoulli (1695-1726); la formula viene attribuita ad Abraham de Moivre (1667-1754);
+per il suo utilizzo e per la comprensione della sua portata vengono ricordati Joseph Sylvester (1814-1897) ed Henri Poincaré (1854-1912). 
+
+\section{APPROFONDIMENTI}
+\begin{itemize}
+ \item PAPER \cite{pinclescl}
+\end{itemize}
+
+
+
