@@ -1,2 +1,2 @@
 # Matematica
-Appunti di matematica
+Appunti di matematica.
