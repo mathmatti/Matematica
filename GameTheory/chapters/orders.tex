@@ -1,0 +1,79 @@
+\chapter{Order: posets and lattices}
+\section{Order: posets and lattices}
+\begin{itemize}
+	\item ...
+	
+	\item Our concern is only with posets or ordered structures which are:
+	  \begin{enumerate}
+	    \item finite, i.e. $|X|<\infty$,
+	    \item with a bottom element $x_{\bot} \in X, i.e. x \ge x_{\bot}$ for all $x \in X$,
+	    \item with a top element $x^{\top} \in X$, i.e. $x^{\top} \ge x$ for all $x \in X$.
+	  \end{enumerate}
+	  In particular, in the sequel our main concern shall be with the poset $(X, \ge)$ given by $(2^N, \supseteq)$ for a finite (player set) $N = \{1,...,n\}$.
+	    \begin{enumerate}
+	     \item Quindi il top del poset $(2^N, \supseteq)$ is equals to $2^N$ and the bottom of $(2^N, \supseteq)$ is equals to $\O$. 
+	    \end{enumerate}
+	    
+	\item ...
+	
+	\item For all $x, y \in X$, the corresponding \emph{\bfseries{interval}} (or \emph{\bfseries{segment}} $[25]$) is the subset $[x,y]=\{z:x \le z \le y\} \subseteq X$; hence $x \le y \Rightarrow [x,y] \ne \O$ while $[y,x] = \O$.
+	
+	\item D - (baudo) - A partially ordered set is \emph{\bf{locally finite}} if each of its intervals has only finitely many elements.
+	
+	\item A chain is a subset $K \subset X$ any two of whose elements are comparable, i.e. for all $x, y \in K$, either $[x,y] \ne \O$ or else $[y,x] \ne \O$ hold.
+	
+	\item Dually, an antichain is a subset $AK \subset X$ any two of its elements are uncomparable, i.e. for all $x,y \in AK$, both $[x,y]=\O$ and $[y,x]=\O$ hold.
+	
+	\item The length of a chain $K = \{x_0,...,x_k\}$ is $|K|-1=k$.
+
+	\item The covering relation, denoted by $>*$, is defined as follows: \\
+	      $x>*y \Leftrightarrow [y,x]=\{x,y\}$ (where $\{x,y\} = \{y,x\}$) for all $x,y \in X$.
+		  \begin{enumerate}
+		   \item Vorrei capire la direzione/terminologia. Anche rispetto al libro!?
+		   \item Todo - copiare appunti dal quaderno
+		  \end{enumerate}
+	\item For $z \ge y$, a $(z-y)$-chain $K_{*}^{z-y} = \{y=x_0, x_1, ..., x_k = z\}$ is said to be maximal if $x_l >* x_{l-1}$ for all $0 < l \le k$.
+	    \begin{enumerate}
+	     \item from the free dictionary: A sequence of $n+1$ subsets of a set of $n$ elements, such that the first member of the sequence is the empty set and each member of the sequence is a proper subset of the next one.
+	    \end{enumerate}
+
+	    
+	\item If for any $y, z \in X$ all maximal $(z-y)$-chains have the same length, then poset $(X, \ge)$ is said to satisfy the Jordan-Dedekind JD condition, in which case for every element $x \in X$ the length of any maximal $(x-x_{\bot})$-chain is the \emph{rank} of $x$. Formally, for any poset $(X, \ge)$ with bottom element $x_{\bot}$ and satisfying the JD condition, the rank function $r: X \to Z_+$ is defined recursively by
+	\begin{enumerate}
+	 \item $r(x_{\bot}) = 0$
+	 \item $x >* y \Rightarrow r(x) = r(y)+1$.
+	\end{enumerate}
+	Thus the rank measures the height of elements (in the Hasse diagram, see above and below).
+
+
+\end{itemize}
+
+APPUNTI UTILI PER QUESTA SEZIONE
+\begin{itemize}
+  \item Let $P$ be an ordered set. We say $P$ has a \emph{\bf{top}} element if there exists $\top \in P$ with the property that $x \le \top$ for all $x \in P$.
+  \item uniquiness of the top (think of duality), antisymmetry etc.? Il top dovrebbe essere unico perch\`e se supponiamo che esista un altro top $t2$ tale che quindi $x \le t2$ for all $x \in P$ ma allora si avrebbe $\top \le t2 \Rightarrow t2 !\le \top$ per la propriet\`a antisimmetrica pertanto siamo giunti ad una contraddizione perch\`e avevamo supposto $\top$ essere un top. 
+  \item Let $P$ be an ordered set and let $S \subseteq P$. An element $x \in P$ is an \emph{\bf{upper bound}} of $S$ if $s \le x$ for all $s \in S$.
+  \item Upper bound is unique when it exists.
+  \item Quindi posso dire che un top \`e un upper bound che sta dentro l'insieme $P$? Insomma che differenza c\`e tra upper bound e top?
+  
+  \item In a partially ordered set, an element $p$ emph{covers} an element $q$ when the segment $[q,p]$ contains two elements. $[25, 343]$
+  
+  \item A lattice is a partially ordered set where max and min of two elements (we call them join and meet, as usual, and write $\vee$ and $\wedge$) are defined. $[25, 342]$
+  
+  \item A \emph{\bf{segment}} $[x,y]$, for $x$ and $y$ in a partially ordered set $P$, is the set of all elements $z$ between $x$ and $y$, that is, such that $x \le z \le y$. ... . A segment is endowed with the induced order structure; thus, a segment of a lattice is again a lattice. $[25, 342]$
+  
+  \item A partially ordered set is \emph{\bf{locally finite}} if every segment is finite. $[25, 342]$
+  
+  \item Let $P$ be a non-empty ordered set. \\
+        If $x \vee y$ and $x \wedge y$ exist fora all $x, y \in P$, then $P$ is called a \emph{\bf{lattice}}. \\
+        If $\vee S$ and $\wedge S$ exist for all $S \subseteq P$, then $P$ is called a \emph{\bf{complete lattice}}.
+        
+  \item Totally ordered subsets of a poset play an important role in the theory of partial orders.
+  
+  \item 
+\end{itemize}
+
+\subsection{Maximal chains of subsets and permutations}
+\subsection{Subset of Boolean lattices}
+\subsubsection{Atomicity}
+\subsubsection{Complementation}
