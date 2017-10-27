@@ -1,11 +1,21 @@
 \chapter{Game Theory}
 %% SETS
-\newcommand{\playerSet}{ N = \{1, ..., 100\} }
-\newcommand{\strategySet}{S_i = \{ 0, 1 \}}
-\newcommand{\alternativeSet}{ X = \{x_1, ..., x_m\}}
-\newcommand{\strategySets}{S_1 = \{s_{i}^{1}, ..., s_{i}^{|S_i|}\}}
+
+%% SETS FOR GAMES MODELING
 \newcommand{\actionSet}{A_i = \{ a_{i}^{1, ..., a_{i}^{|A_i|}} \}}
 \newcommand{\actionProfileSet}{A = A_1 \times ... \times A_n}
+\newcommand{\alternativeSet}{ X = \{x_1, ..., x_m\}}
+\newcommand{\playerSet}{ N = \{1, ..., 100\} }
+\newcommand{\powerSet}{2^N}
+\newcommand{\realSet}{\mathbb{R}}
+\newcommand{\strategySet}{S_i = \{ 0, 1 \}}
+\newcommand{\strategySets}{S_1 = \{s_{i}^{1}, ..., s_{i}^{|S_i|}\}}
+
+%% SETS FOR GRAPH MODELS
+\newcommand{\edgeSet}{\mathbb{E}}
+\newcommand{\vertexSet}{\mathbb{V}}
+\newcommand{\vertexList}{\{v_0, v_1, ..., v_{|\vertexSet|-1}\}}
+
 
 %% FUNCTIONS
 \newcommand{\setFunction}{p:2^X \to [0,1]}
@@ -15,7 +25,8 @@
 \newcommand{\strategies}{S_1 \times ... \times S_n}
 
 %% GAMES
-\newcommand{\gameTree}{\mathfrak{T} = (V, E)}
+\newcommand{\coopCoalGame}{v: \powerSet \to \realSet}         %% is a cooperative coalitional game
+\newcommand{\gameTree}{\mathfrak{T} = (\vertexSet, \edgeSet)} %% is a multistage game
 %%, V=\{v_0,v_1,...,v_{|V|-1}\}, E \subseteq V \times V }
 
 %\begin{abstract}
