@@ -1,80 +1,37 @@
 \chapter{Game Theory}
-%% SETS
 
-%% SETS FOR GAMES MODELING
-\newcommand{\actionSet}{A_i = \{ a_{i}^{1, ..., a_{i}^{|A_i|}} \}}
-\newcommand{\actionProfileSet}{A = A_1 \times ... \times A_n}
-\newcommand{\alternativeSet}{ X = \{x_1, ..., x_m\}}
-\newcommand{\playerSet}{ N = \{1, ..., 100\} }
-\newcommand{\powerSet}{2^N}
-\newcommand{\realSet}{\mathbb{R}}
-\newcommand{\nonnegativeRealSet}{\mathbb{R}_{+}}   %% [0,infty) quindi zero compreso
-\newcommand{\positiveRealSet}{\mathbb{R}_{++}}     %% (0,infty) quindi escluso lo zero
-\newcommand{\strategySet}{S_i = \{ 0, 1 \}}
-\newcommand{\strategySets}{S_1 = \{s_{i}^{1}, ..., s_{i}^{|S_i|}\}}
+Appunti personali presi durante il corso di Giochi e Modelli Booleani (aka Teoria dei giochi (TG)) - 82114 - ANNO 2017/18 - tenuto dal Prof. Giovanni Rossi. Non avendo seguito tutto il corso, alcuni fatti potrebbero risultare distorti mentre altri potrebbero tornare utili.
 
-%% SETS FOR GRAPH MODELS
-\newcommand{\edgeSet}{\mathbb{E}}
-\newcommand{\vertexSet}{\mathbb{V}}
-\newcommand{\vertexList}{\{v_0, v_1, ..., v_{|\vertexSet|-1}\}}
+\section{TODO}
+In questa sezione ci sono le cose ancora da sistemare.
+vedi \cite{vorobev01} pag.2 for constant sum game
 
+Vedi capitolo 6 per descrizione gioco e primo approccio alla probability
 
-%% FUNCTIONS
-\newcommand{\setFunction}{p:2^X \to [0,1]}
-\newcommand{\utilityFunction}{u_i:\strategies \to R}
+\input{GameTheory/chapters/termini.tex}
 
-%% TUPLES
-\newcommand{\strategies}{S_1 \times ... \times S_n}
-
-%% GAMES
-\newcommand{\coopCoalGame}{v: \powerSet \to \realSet}         %% is a cooperative coalitional game
-\newcommand{\gameTree}{\mathfrak{T} = (\vertexSet, \edgeSet)} %% is a multistage game
-%%, V=\{v_0,v_1,...,v_{|V|-1}\}, E \subseteq V \times V }
-
-%\begin{abstract}
-%Appunti personali presi durante il corso di Giochi e Modelli Booleani (aka Teoria dei giochi (TG)) - 82114 - ANNO 2017/18 - tenuto dal Prof. Giovanni Rossi. Non avendo seguito tutto il corso, alcuni fatti potrebbero risultare distorti mentre altri potrebbero
-%presentare delle lacune.  
-%\end{abstract}
-
-\input{GameTheory/chapters/preface.tex}
+%\input{GameTheory/chapters/preface.tex}
+\input{GameTheory/chapters/howToStudyGameTheory.tex}
 \input{GameTheory/chapters/introGameTheory.tex}
-\input{GameTheory/chapters/preferences.tex}
-\input{GameTheory/chapters/randomness.tex}
-\input{GameTheory/chapters/strategies20171010.tex}
-\input{GameTheory/chapters/strategies20171026.tex}
-\input{GameTheory/chapters/esercitazione1.tex}
-\input{GameTheory/chapters/introCoopGame.tex}
-\input{GameTheory/chapters/orders.tex}
-\input{GameTheory/chapters/mobius.tex}
-\input{GameTheory/chapters/incidenceAlgebra.tex}
-\input{GameTheory/chapters/summary.tex}
+\input{GameTheory/chapters/classificationOfGames.tex}
+\input{GameTheory/chapters/game.tex}
+%\input{GameTheory/chapters/preferences.tex}
+%\input{GameTheory/chapters/randomness.tex}
+%\input{GameTheory/chapters/strategies20171010.tex}
+%\input{GameTheory/chapters/strategies20171026.tex}
+\input{GameTheory/chapters/strategy.tex}
+\input{GameTheory/chapters/zeroSumGames.tex}
+\input{GameTheory/chapters/nonzeroSumGames.tex}
+%\input{GameTheory/chapters/esercitazione1.tex}
+%\input{GameTheory/chapters/introCoopGame.tex}
+%\input{GameTheory/chapters/orders.tex}
+%\input{GameTheory/chapters/mobius.tex}
+%\input{GameTheory/chapters/incidenceAlgebra.tex}
+%\input{GameTheory/chapters/summary.tex}
 \input{GameTheory/chapters/potentialGames.tex}
 
 
 
-
-%%%%%%%%%%%%%% DA SISTEMARE
-%\section{Solutions of coalitional games}
-%\subsection{Axiomatic characterization of solutions}
-%\subsection{The Shapley value: existence and uniqueness}
-%\subsubsection{Integrating MLE first derivatives}
-%\subsection{Random-order and probabilistic solutions}
-%\subsection{Weights and Shapley values}
-%\subsection{Core of coalitional games}
-%\subsection{Cooperation restrictions}
-%\subsubsection{Partition constraints type I}
-%\subsubsection{Partition constraints type II}
-%\subsubsection{Graph-restricted games}
-
-%\section{Geometric lattices}
-%\subsection{Two examples by means of partitions}
-%\subsection{Cooperation restrictions in general}
-
-%\section{Coalition formation}
-%\subsection{Network formation}
-%\subsection{Fuzzy coalitions}
-
-%\section{Set packaging and partitioning in combinatorial optimization}
 
 
 
