@@ -7,10 +7,16 @@ Chapter II, GENERAL FORMAL DESCRIPTION OF GAMES OF STRATEGY, 6 The Simplified Co
 
 Let us now consider a game $\Gamma$ of $n$ players who, for the sake of brevity, will be denoted by 1, ..., n. The conventional picture provides that this game is a sequence of moves, and we assume that both the number and the arrangement of these moves is given \emph{ab initio}.We shall see later that these restrictions are not really significant, and that they can be removed without difficulty. For the present let us denote the (fixed) number of moves in $\Gamma$ by $v$ - this is an integer $v=1,2,...$. The moves themeselves we denote by ... capire che cavolo \`e quella Mmm???TODO
 
-\section{Gli elementi di un gioco e rappresentazione matematica}
+\section{Rappresentazione matematica degli elementi di un gioco}
 \begin{itemize}
  \item Player/s          = SET
  \item Prospetto/outcome = ENNUPLA. e.g. $(x)$, $(a,b)$ dove $a, b, x$ sono variabili logiche, al posto delle quali pu\`o andare un nostro tipo matematico a scelta.
+ \item Strategia         = ENNUPLA
+ \item Utility Function  = Data una strategia, restituisce un prospetto.
+ \item Ordine            = Serve per discernere le mosse dell'avversario e per ordinare le mie preferenze.
+ \item Game              = $\setFunction$ - dato un insieme di players restituisce true se l'insieme soddisfa le regole del gioco.
+ \item Rules             = sono le specifiche implementazioni che diamo alla utiliti function e a tutto il resto.
 \end{itemize}
 
 
+\quote{Dovevo aspettermelo che con von Neumann saltava fuori qualche sorta di assiomatizzazione. Ed infatti, }

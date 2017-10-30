@@ -12,3 +12,36 @@ It must be said that, equilibria that are also Pareto optimal represent extremel
 
 \quote{La cosa interessante is that pareto-optimality is defined as a property, e non importa se questa propriet\`a \`e in qualche modo connessa al concetto di equilibrio. Infine si ricorda che un equilibrio che sia anche pareto ottimale rappresenta l'eccezione e non la regola, semmai ci fosse una conessione di dipendenza tra il concetto di equilibrio e quello di paretto ottimalit\`a}
 
+\begin{definizione}
+	A pair of strategies $(a_{1}^{PO}, a_{2}^{PO})$ is said to be Pareto optimal (PO) if there exists no other pair $(a_1,a_2)$ such that for $i=1,2$
+		\[
+			u_i(a_1, a_2) > u_i(a_{1}^{PO}, a_{2}^{PO}) \wedge u_{-i} \ge u(a_{1}^{PO}, a_{2}^{PO}) 
+		\]
+\end{definizione}	
+
+Ora che abbiamo la formula della pareto optimality non ci resta che applicarla ad un esempio concreto. 
+
+\begin{verbatim}
+	LET N be SET players
+	Una volta stabilito il numero dei giocatori, tutte le tuple 
+	hanno lunghezza |N|=:n
+	n lo utilizziamo solo per il numero dei giocatori
+	altri indici utilizzati saranno: i, j, d
+	LET A be SET alternatives
+	LET S be SET strategies WHERE s \in S = (a_1, ..., a_n) - 'a' for alternative(choice)
+	LET P be SET prospects(outcomes) WHERE p \in P = (p_1, ..., p_n) - 'p' for payoff
+	LET u be FUNCTION u : S --> P
+	E.G. u(s) |--> (p_1, ..., p_n), p_1, ..., p_n \in R^n
+	
+	l'operatore su tuple t_{-i} restituisce una tupla di lunghezza di t meno 1.
+\end{verbatim}
+
+\begin{definizione}
+	Una strategia si dice \emph{pareto-optimally} if there is no other strategy that adhere with the following conditions:
+	\begin{enumerate}
+		\item 
+	\end{enumerate}
+\end{definizione}
+
+
+
