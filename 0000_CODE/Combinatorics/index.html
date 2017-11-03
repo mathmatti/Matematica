@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+<!--<meta charset="UTF8">-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="combinatorics.js"></script>
+<script src="math.js"></script>
+<script src="partitions.js"></script>
+
+<script type="text/x-mathjax-config">
+//
+//  Do NOT use this page as a template for your own pages.  It includes 
+//  code that is needed for testing your site's installation of MathJax,
+//  and that should not be used in normal web pages.  Use sample.html as
+//  the example for how to call MathJax in your own pages.
+//
+  MathJax.HTML.Cookie.Set("menu",{});
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+    "HTML-CSS": {
+      availableFonts:[],
+      styles: {".MathJax_Preview": {visibility: "hidden"}}
+    }
+  });
+  MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
+    var FONT = MathJax.OutputJax["HTML-CSS"].Font;
+    FONT.loadError = function (font) {
+      MathJax.Message.Set("Can't load web font TeX/"+font.directory,null,2000);
+      document.getElementById("noWebFont").style.display = "";
+    };
+    FONT.firefoxFontError = function (font) {
+      MathJax.Message.Set("Firefox can't load web fonts from a remote host",null,3000);
+      document.getElementById("ffWebFont").style.display = "";
+    };
+  });
+
+(function (HUB) {
+  
+  var MINVERSION = {
+    Firefox: 3.0,
+    Opera: 9.52,
+    MSIE: 6.0,
+    Chrome: 0.3,
+    Safari: 2.0,
+    Konqueror: 4.0,
+    Unknown: 10000.0 // always disable unknown browsers
+  };
+  
+  if (!HUB.Browser.versionAtLeast(MINVERSION[HUB.Browser]||0.0)) {
+    HUB.Config({
+      jax: [],                   // don't load any Jax
+      extensions: [],            // don't load any extensions
+      "v1.0-compatible": false   // skip warning message due to no jax
+    });
+    setTimeout('document.getElementById("badBrowser").style.display = ""',0);
+  }
+  
+})(MathJax.Hub);
+
+MathJax.Hub.Register.StartupHook("End",function () {
+  var HTMLCSS = MathJax.OutputJax["HTML-CSS"];
+  if (HTMLCSS && HTMLCSS.imgFonts) {document.getElementById("imageFonts").style.display = ""}
+});
+
+</script>
+
+
+<script type="text/javascript" src="MathJax-2.7.2/MathJax.js"></script>
+
+<style>
+.warning {
+  color: #800020;
+  background-color: #FFF8F8;
+  border: 2px solid red;
+  margin: 1em 5em;
+  padding: 1em;
+}
+</style>
+
+
+
+<script>
+
+var N = []; var n = 0;
+var powerN = [];
+var A = []; var a = 0;// come metto dentro R?
+var S = [];
+var P = [];
+var U = [];
+var R = [];
+
+// UTILITY FUNCTION
+function u(i){ 
+	return N.length/i;
+}
+
+// BEST CHOICE FUNCTION
+function best(i){
+	//restituisce l'insieme delle migliori
+}
+
+function paretoOptimal(strategy, strategies){
+	// 1. Mi serve la lunghezza del vettore
+	
+	// 2. Devo confrontare componente per componente
+}
+
+
+// Insieme delle A_i
+function printA(){
+	$('#tabDati').html('');
+	
+	
+	
+	N.forEach(function s(valoreCorrente, indice, array){
+	     
+		$('#tabDati').append('<tr>Giocatore: ' + indice);
+		
+		A.forEach(function s(valoreCorrente, indice, array){
+			$('#tabDati').append('<td><input type="text" value="'+ indice +'">');		
+			
+			$('#tabDati').append('</td>');
+		});
+		
+		
+		$('#tabDati').append('</tr><br />');
+	});
+	
+	
+}
+
+function cliccaNumeroGiocatori(){
+
+	
+	// INIZIALIZZO IL GIOCO
+	N = [];
+	A = []; // come metto dentro R?
+	S = [];
+	P = [];
+	U = [];
+	R = [];
+	
+	// PRELEVO I PARAMETRI DALLA USER INTERFACE
+	n = $('#n').val();
+	a = $('#a').val();
+	
+
+	// N
+	for (i=0; i<n;i++){
+		N.push(i+1);		
+		// Per ogni giocatore prevediamo il suo insieme di alternative primitive		
+	}
+	
+	// power N
+	powerN = Combinatorics.power(N).toArray();
+	
+	// Bell sets - sets of all partitions
+	N_bellSets = partitions(n);
+	//N_bellSets = JSON.parse(N_bellSets);
+	ss = JSON.parse(N_bellSets);
+	
+	
+	// A^1 - Alternative primitive (strategies) - con 1 giocatore
+	for (i=0; i<a; i++){
+		A.push(u(i+1));
+	}
+	
+	S = A.slice();
+	for (i=1; i<n; i++){
+		S = Combinatorics.cartesianProduct(S, A);
+		S = S.toArray();	
+	}
+	
+	
+	
+	
+	
+
+	
+	//$('#alternatives').append(S.toArray());	
+	//S.toArray()
+	
+	// S = A^2 - Strategies - con 2 giocatori
+	// tutte le possibili tuple di lunghezza |A| da 1 a |A|*|A|
+	
+	
+	
+	// S = A^3 = A^2 * A - Strategies - con 3 giocatori
+	
+	
+	$('#players').html('');
+	$('#N_bellSets').html('');
+	
+	N.forEach(function s(valoreCorrente, indice, array){		
+		$('#players').append('<h5>Player ' + (indice+1) + '</h5>' );
+		$('#players').append('Best choice = ' + '<br />');
+		
+		S.forEach(function s(valoreCorrente, indice, array){		
+			$('#players').append('Prospetto ' + (indice+1) + ': <input type="text" value="'+ u(indice+1) +'"><br />');			
+		});
+		
+		
+	});
+	
+	
+	// 
+	printA();
+	
+	//
+	$('#N_bellSets').append(N_bellSets + '<br />');
+	
+}
+</script>
+</head>
+
+<body>
+
+<!-- <h1>Companion code for combinatorial game theory</h1> -->
+<a href="https://www.baudo.hol.es">giuseppe baudo</a>
+
+<h3>1. DATA</h3>
+<p>
+Ogni gioco dipende da una serie di dati di input.
+
+<ol>
+<li>Numero dei giocatori (1-9)</li>
+<li>Numero di alternative per ciascun giocatore (1-9)</li>
+</ol>
+
+</p>
+
+|N|  = <input type="text" id="n" value="2"> <br />
+|A|  = <input type="text" id="a" value="2"> <br /><br />
+
+Utility Function <br/>
+
+<p>
+\[
+x = {-b \pm \sqrt{b^2-4ac} \over 2a}
+\]
+</p>
+<br />
+
+<h3>2. Click Start Game button</h3>
+
+<input type="button" onclick="cliccaNumeroGiocatori()" value="Start Game">
+
+
+<div id="result">
+	<div id="alternatives">	
+	<h3>Strategie</h3>
+	</div>
+
+	<h3>Players</h3>
+	<div id="players">	
+	</div>
+	
+	<h3>Game</h3>
+	<h5>All partitions of N</h5>
+	<div id="N_bellSets"></div>
+</div>
+
+<h3>Tabella Dati</h3>
+<table id="tabDati">
+
+
+</table>
+
+</body>
