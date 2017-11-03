@@ -207,12 +207,12 @@ function cliccaNumeroGiocatori(){
 	$('#players').html('');
 	$('#N_bellSets').html('');
 	
-	N.forEach(function s(valoreCorrente, indice, array){		
-		$('#players').append('<h5>Player ' + (indice+1) + '</h5>' );
+	N.forEach(function s(valoreCorrente, indiceN, array){		
+		$('#players').append('<h5>Player ' + (indiceN+1) + '</h5>' );
 		$('#players').append('Best choice = ' + '<br />');
 		
 		S.forEach(function s(valoreCorrente, indice, array){		
-			$('#players').append('Prospetto ' + (indice+1) + ': <input type="text" value="'+ u(indice+1) +'"><br />');			
+			$('#players').append('Prospetto ' + (indice+1) + ': <input type="text" value="'+ valoreCorrente +'"><br />');			
 		});
 		
 		
