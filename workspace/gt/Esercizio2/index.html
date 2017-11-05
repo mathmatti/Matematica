@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+<!--<meta charset="UTF8">-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script>
+
+function esercizio2(){
+	var n = document.getElementById('n').value;
+	var S = [];
+	var s = '';
+	var u = 0;
+	
+
+	var comb_rip = Math.pow(2,n); document.write('comb_rip = ' + comb_rip);
+	document.write('<br/>Generazione delle combinazioni con ripetizioni: ' + '<br/>');
+	document.write('<table>');
+	for (i=0;i<comb_rip;i++){
+		s = (i >>> 0).toString(2);
+		for (j=s.length;j<n;j++){
+			//aggiungo gli zeri iniziali
+			s = '0'+s; 
+		}
+		document.write('<tr>');
+		document.write('<td>Strategia ' + s + '</td>');
+		
+		document.write('<td>');
+		document.write('(');
+		tot_strat = 0;
+		for (k=0; k<n; k++){  // per ogni player
+			u = 0;
+			if(s.substring(k,k+1) == '1'){
+				u = 1;
+			}
+			for (l=0; l<s.length; l++){ // per ogni s_i \in s
+				if(s.substring(l,l+1) =='1'){
+					u = u - (1/n);
+				}
+			}
+			tot_strat = tot_strat + Math.pow(u,2);
+			document.write(Math.pow(u,2) + ', ');
+		}
+		document.write(')');
+		document.write('</td>');
+
+		document.write('<td>' + tot_strat + '</td>');
+		document.write('</tr>');
+		//S.push(s);
+	}
+	document.write('</table>');
+
+	//document.write('Stampo gli elementi di S '+ '<br/>');
+	//S.forEach(function f(item, indice, arr){
+	//	console.log(item);
+    //	document.write(item + '<br/>');
+	//});
+
+	
+}
+
+</script>	
+
+
+
+
+</head>
+
+<body>
+Number of players: <input type="text" value="3" id="n"><br/>
+<input type="button" onclick="esercizio2()" value="Start Game">
+
+
+
+</body>

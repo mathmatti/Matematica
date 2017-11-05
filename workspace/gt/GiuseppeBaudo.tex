@@ -1,0 +1,308 @@
+\documentclass{article}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}
+
+\begin{document}
+
+\title{Games and Boolean models - mid-term exam}
+\author{Giuseppe Baudo\\
+{\footnotesize LM Informatics}\\
+{\footnotesize University  of Bologna}}
+\maketitle
+
+{\footnotesize \textsl{Instructions:}
+\begin{itemize}
+\item Edit your work using the provided tex file. Hand in your work as a LaTex-generated pdf file attached to an e-mail addressed to roxyjean at gmail.com,
+by the end (i.e. 24:00) of sunday 12 November 2017. Your name should appear both as the author above, and in the chosen tex/pdf files names.
+
+\item All solution methods and corresponding computations have to be carefully commented, either in English or in Italian. Any part of the work consisting of
+non-commented computations and/or expressions shall be disregarded.
+\end{itemize}
+}
+
+\section{Exercise}
+For an even integer $m$, let $M=\{1,\ldots,m\}$ and define $f:M\rightarrow M$ by
+$$f(k)=\left\{\begin{array}{c}\frac{m}{2}+k\text{ if }1\leq k\leq\frac{m}{2}\text ,\\ k-\frac{m}{2}\text{ if }\frac{m}{2}<k\leq m\text .\end{array}\right .$$
+\begin{enumerate}
+\item Characterize binary relation $R^f$ on $M$ defined by
+$$R^f=\{(k,f(k)):1\leq k\leq m\}\subset M\times M$$
+in terms of (ir)reflexivity, (a/anti)symmetry, transitivity and completeness. Determine the number of 1s in Boolean matrix $\mathcal M^{R^f}\in\{0,1\}^{m\times m}$
+representing $R^f$, i.e.
+$\mathcal M_{kl}^{R^f}=\left\{\begin{array}{c}1\text{ if }(k,l)\in R^f\text ,\\0\text{ if }(k,l)\in M\times M\backslash R^f\text ,\end{array}\right .$
+$1\leq k,l\leq m$.
+
+\item Identify a ($\supseteq$-)minimal rational preference (binary relation) $R^{\succsim^*}$ satisfying $R^{\succsim^*}\supseteq R$. How many 1s are in
+Boolean matrix $\mathcal M^{R^{\succsim^*}}$? Also determine the corresponding ordered partition $\mathfrak P^{\succsim^*}=(A_1,\ldots,A_{|\mathfrak P^{\succsim^*}|})$
+of $M$.
+\end{enumerate}
+
+\subsection{Solution}
+
+\subsubsection{Prerequisites}
+\begin{itemize}
+ \item Set: an abstract aggregate of elements.
+ \item Mapping: a way to create new sets.
+ \item mapping: a properties holding on element(s) of set.
+ \item Binary relation: see \cite{herstein1996}, \cite{herstein1999} and \cite{rossi}.
+\end{itemize}
+
+\subsubsection{Notation}
+\begin{itemize}
+ \item $M$ = a finite set of $m$ elements.
+ \item $m$ = number of elements of set $M$. 
+\end{itemize}
+
+
+\subsubsection{Analysis of a function $f$}
+Given the binary relation $R^f$ as above defined, we'll investigate its properties (symmetry, transitivity, etc.). 
+
+\noindent
+{\color{blue} \rule{\linewidth}{0.5mm} }
+
+Anzitutto che cos'\`e la $f$? La $f$ assegna ad ogni elemento di $M$ un elemento di stesso, pertanto si potrebbe trattare di una permutazione ovvero 
+
+\textbf{an elements of the \emph{symmetric group of degree $n$, denoted by $S_n$}} \cite{herstein1999}. 
+
+Nel nostro caso $n=|M|=m$. Quanto detto non \`e proprio rigoroso in quanto si dovrebbe dimostrare che $f$ \`e una permutazione ovvero dovrei fare vedere che la $f$ \`e sia iniettiva che suriettiva. Di questo fatto me ne sono accorto svolgendo i calcoli sulla $f$ ovvero andando a calcolare $f(0),...,f(m)$ per $|M|$ uguale a $4,6,8$. 
+
+La $f$ pu\`o essere pensata come suddivisa in due funzioni $f_{part1}$ e $f_{part2}$ e pertanto la prima cosa da fare \`e discernere quale delle due funzioni applicare a $k$ quando quest'ultimo \`e passato alla funzione $f$ in altre parole la scrittura $f(k)$ si potrebbe leggere come: quale funzione devo applicare a $k$? Ebbene la funzione da applicare dipende da $k$, se $k \le \frac{m}{2}$ applichiamo la $f_{part1}$, altrimenti applichiamo la $f_{part2}$. Chiaramente $f_{part1}$ ed $f_{part2}$ sono definite come: \\
+
+\[
+ f(k) = f_{part1} (k) = \frac{m}{2}+k
+\]
+if $k \le \frac{m}{2}$ first half elements of $M$, and,
+
+\[
+ f(k) = f_{part2} (k) = k - \frac{m}{2}
+\]
+if $k > \frac{m}{2}$ second half elements of $M$
+
+Cio\`e la prima met\`a di elementi di $M$ viene calcolata con $f_{part1}$ mentre la seconda met\`a di elementi di $M$ viene calcolata con $f_{part2}$. 
+
+
+Proviamo a schematizzare:
+
+\medskip
+
+
+\noindent
+{\color{blue} \rule{\linewidth}{0.5mm} }
+
+Per $m=4$, ossia $M = \{1, 2, 3, 4\}$ abbiamo che $\frac{m}{2} = 2$, 
+
+\[f(1)= 2 + 1 = 3\] 
+\[f(2)= 2 + 2 = 4\] 
+\[f(3)= 3 - 2 = 1\] 
+\[f(4)= 4 - 2 = 2\] 
+
+
+che posso rappresentare in forma di matrice:
+\[
+\begin{pmatrix}
+ 1 & 2 & 3 & 4 \\
+ 3 & 4 & 1 & 2
+\end{pmatrix}
+\]
+
+La matrice precedente la leggiamo in questo modo: nella prima riga ci sono i valori di $k$, mentre nella seconda riga sono riportati i valori di $f(k)$. Come si pu\`o notare da questo primo svolgimento, ma dopo cercheremo di dimostrarlo algebricamente, la relazione $R^f$ \`e certamente simmetrica.
+
+\noindent
+{\color{blue} \rule{\linewidth}{0.5mm} }
+
+Per $m=6$, (saltiamo da $4$ a $6$ perch\`e l'esercizio richiede che $m$ sia pari), ossia $M = \{1, 2, 3, 4, 5, 6\}$ abbiamo che $\frac{m}{2} = 3$, \\
+
+\[f(1)=3+1=4\] 
+\[f(2)=3+2=5\] 
+\[f(3)=3+3=6\] 
+\[f(4)=4-3=1\] 
+\[f(5)=5-3=2\] 
+\[f(6)=6-3=3\] 
+
+Che possiamo rappresentare sotto forma di matrice come
+\[
+\begin{pmatrix}
+ 1 & 2 & 3 & 4 & 5 & 6 \\
+ 4 & 5 & 6 & 1 & 2 & 3 
+\end{pmatrix}
+\]
+
+La funzione $f$ potrebbe essere vista anche come $k \equiv f(k)\ (\textrm{mod}\ \frac{m}{2})$ e con quest'ultima espressione ...
+
+\noindent
+{\color{blue} \rule{\linewidth}{0.5mm} }
+\subsubsection{Analysis of $R^f$ properties}
+
+\begin{prop}
+ The binary relation $R^f$ is symmetric, intransitive and incomplete.
+\end{prop}
+
+\begin{proof}
+  \textbf{Symmetry}. Symmetry seems to be trivial but we need to show that $(k, f(k)) \in R^f \implies (f(k), k) \in R^f$. \\
+  Thinking $R^f$ as $R^f = \{(a,b) \wedge (b, a) : b = a + \frac{m}{2}, \forall a, b \in M, \} \subseteq M \times M$ \\
+  The reason could be because congruences are symmetric but we need to show to many things in order to prove the proposition.
+  
+  \medskip
+  
+  \textbf{Transitivity}. NO, infatti posso trovare due ennuple $(k, f(k)), (f(k),f(f(k))) \in R^f$ \\
+ tali che $(k, f(f(k))) \not\in R^f$. E.g. se prendo $(1,3), (3,1) \in R^{f^4}$, dove $f^4$ rappresenta la funzione $f$ quando $m=4$, la ennupla $(1,1) \not\in R^{f^4}$.
+ 
+  \medskip
+  
+  \textbf{Completeness}. NO, infatti $(1,2) \wedge (2,1) \not\in R^{f^4}$.
+\end{proof}
+
+\subsubsection{Number of 1s in Boolean matrix representing $R^f$}
+\begin{prop}
+There are $m$ 1s in the boolean matrix representing $R^f$.
+\end{prop}
+
+\section{Exercise}
+For player set $N=\{1,\ldots ,n\}$ and strategy set $\mathbb S_i=\{0,1\}$ for all $i\in N$, let
+$$u_i(s)=u_i(s_i,s_{-i})=\left(s_i-\sum_{j\in N}\frac{s_j}{n}\right)^2\text{ for all strategy profiles }s\in\{0,1\}^n\text .$$
+\begin{enumerate}
+\item Is this a common interest game? If yes, then determine the (non-empty) set of strategy profiles where each player attains the maximum payoff. If no, then show
+that different players have different optimal strategy profiles. Is this a constant-sum game? If yes, then show that any two strategy profiles $s,s'\in\{0,1\}^n$
+provide the same aggregate payoff, that is to say $\sum_{i\in N}u_i(s)=\sum_{i\in N}u_i(s)$. If no, then show that there are different strategy profiles providing
+different aggregate payoffs. Are there Pareto-dominated strategy profiles? If yes, then determine all pairs of strategy profiles one of which Pareto-dominates the
+other. If no, then show that for any pair of strategy profiles neither one Pareto-dominates the other.
+
+\item Regarding this as a congestion game with a 2-set $\{0,1\}$ of facilities, denote by $u_0(k)$ the utility attained by playing 0 when the number of those playing 0
+is $k$ and by $u_1(k)$ the utility attained by playing 1 when the number of those playing 1 is $k$. Verify whether the game is monotone and, in particular, whether
+$$u_0(k)-u_0(k+1)=u_1(k)-u_1(k+1)$$ for all $1\leq k<n$. For $1<k<n$, denote by $s_0^k\in\{0,1\}^n$ any of the $\binom{n}{k}$ strategy profiles where $k=|\{i:s_i=0\}|$,
+and by $\textbf P:\{0,1\}^n\rightarrow\mathbb R$ the exact potential function. Determine $\textbf P(s_0^k)$. Is there any relation between the set of strong equilibria
+and the set of equilibria (with non-random strategies)? How many equilibria are there?
+
+\item Verify whether the $n$-tuple of random strategies $\frac{\textbf 1}{\textbf 2}\in[0,1]^n$ where every $i\in N$ plays both 0 and 1 with equal probability, i.e.
+$\frac{1}{2}$, is an equilibrium. 
+\end{enumerate}
+
+\subsection{Solution}
+
+\subsubsection{Prerequisites}
+\begin{itemize}
+ \item See \cite{holzman}, \cite{rosenthal}, \cite{rossi}, \cite{voorneveld}
+ \item Preference aggregation. mainly \cite{rossi};
+ \item Common interest game. mainly \cite{rossi};
+ \item Potential game.
+ \item Congestion game.
+ \item Dominance.
+\end{itemize}
+
+\subsubsection{Notation}
+\begin{itemize}
+ \item $\Gamma = (\mathbb{N}, \mathbb{S}, u_i)$. $\Gamma$ \`e il gioco definito dall'esercizio.
+ \item $\mathbb{N} = \{1,...,n\}$ = A set of $n$ elements called players.
+ \item $\mathbb{S}_i = \{ 0,1 \}$ = A set of $2$ elements called strategies. A strategy can have many levels, in fact an element of $\mathbb{S}_i$ can be another set of strategies and so on. For flat strategy set we use the name \emph{alternative}. I the our game there are $n$ strategy sets. Each element of the strategy set $\mathbb{S}_i$ has value $0$ or $1$. Nevertheless, the process of value assignment can continue to infinity if we look at $0$ and $1$ not as number or as value of real set $\mathbb{R}$ but as a name indicating a choice. \\
+ In altre parole, assumiamo che gli elementi di $\mathbb{S}_i$ siano i numeri reali $0,1 \in \mathbb{R}$.
+ \item $\mathbb{S} = \mathbb{S}_1 \times, ..., \times \mathbb{S}_n$. Strategy profiles set. Insieme di ennuple $(a_1, ..., a_n)$ con $a_1, a_n \in \{0,1\} \subseteq \mathbb{R}$. Insieme degli outcomes. Insieme dei prospetti. In condizione di completa informazione ogni giocatore conosce tutti i prospetti ed il rispettivo valore dato dalla sua funzione di utilit\`a $u_i$.
+ \item $s \in \mathbb{S}$
+ \item $s_i$. Sia data $s \in \mathbb{S} = (s_1, ..., s_n)$ una tupla, allora $s_i$ indica l'iesimo elemento all'interno della tupla $s$. E.g. $s=(3,6,9,45)$ allora $s_2 = 6$. Per fortuna tutti gli indici iniziano da $1$. Sottolineamo questo fatto perch\`e molto spesso in computer science and specifically in programming languages indices start from $0$.
+ \item $s_{-i}$ = E.g. $s_{-2} = (3,9,45)$. Questa notazione serve per poter suddividere le componenti o coordinate del generico settore. Una volta distinte da diversi nomi le coordinate possono essere utilizzate nella definizione della funzione stessa.
+ \item $(s_i, s_{-i})$ = E.g. $(6,(3,9,45)) = (3,6,9,45)$.
+ \item $u_i (s)$ = funzione di utilit\`a dell'iesimo giocatore.
+\end{itemize}
+
+
+\subsubsection{Is this a common interest game?}
+\begin{prop}
+ $\Gamma$ is a common interest game.
+\end{prop}
+
+\begin{proof}
+ 
+\end{proof}
+
+
+
+\subsubsection{Is this a constant-sum game?}
+yes, is a zero-sum game.
+
+\subsubsection{Are there Pareto-dominated strategy profiles?}
+
+\subsubsection{Regarding as congestion game}
+
+
+
+\section{Exercise}
+For $M=\{1,\ldots,m\}$, consider the symmetric congestion game where every player $i\in N=\{1,\ldots,n\}$ has strategy set $\mathbb S_i=\mathcal K\subset 2^{2^M}$
+consisting of the $m!$ \textit{maximal chains} $\{A_0,A_1,\ldots,A_{m-1},A_m\}\in\mathcal K$ of subsets of $M$. That is,
+$$M=A_m\supset^*A_{m-1}\supset^*\cdots\supset^*A_1\supset^*A_0=\emptyset\text{, where }$$
+$$A_k\supset^*A_{k-1}\Leftrightarrow A_k\supset A_{k-1},|A_k|=|A_{k-1}|+1\text{ }(1\leq k\leq m)$$
+is the \textit{covering relation}. Hence the set of facilities is $\{A:\emptyset\subset A\subset M\}$. For every strategy profile $s=(s_1,\ldots,s_n)\in\mathcal K^n$,
+denote $i$'s strategy ($i\in N$) by
+$$s_i=\{A_0,A_1^i,\ldots,A_{m-1}^i,A_m\}\in\mathcal K\text ,$$
+and define congestion vector $\{c_A(s):\emptyset\subset A\subset M\}\in\mathbb Z_+^{2^m-2}$ by
+$$c_A(s)=|\{i:A\in s_i\}|\text .$$
+Finally, utilities have form
+$$u_i(s)=\sum_{0<k<m}\frac{1}{c_{A^i_k}(s)}\text .$$
+In what follows, distinguish between cases (a) $n\leq m$ and (b) $n=m!$.
+\begin{enumerate}
+\item Is this a common interest game? If yes, then determine the (non-empty) set of strategy profiles where each player attains the maximum payoff. If no, then show
+that different players have different optimal strategy profiles. Is this a constant-sum game? If yes, then show that any two strategy profiles $s,s'\in\{0,1\}^n$
+provide the same aggregate payoff, that is to say $\sum_{i\in N}u_i(s)=\sum_{i\in N}u_i(s)$. If no, then show that there are different strategy profiles providing
+different aggregate payoffs. Are there Pareto-dominated strategy profiles? If yes, then provide examples of pairs of strategy profiles one of which Pareto-dominates the
+other. If no, then show that for any pair of strategy profiles neither one Pareto-dominates the other.
+\item Characterize the set of equilibria and the set of strong equilibria (with non-random strategies). Compute the value $\textbf P(s)$ taken by the exact potential
+\textbf P at any equilibrium $s$.
+\item Verify whether the random strategy profile consisting of $n$ uniform distributions over the $m!$-set $\mathcal K$ of maximal chains is an equilibrium or not.
+\end{enumerate}
+
+\section{Exercise}
+Let $M=\{1,\ldots,10\}$ and define $f:M\rightarrow\{0,1\}$ by
+$f(i)=\left\{\begin{array}{c}1\text{ if }i\text{ is a prime,}\\0\text{ otherwise.}\end{array}\right .$
+Compute the discrete Choquet integral $E_{\eta}^C(f)$ of $f$ with respect to fuzzy probability $\eta:2^M\rightarrow[0,1]$ defined by
+$$\eta(A)=\binom{11}{2}^{-2}\left(\sum_{i\in A}i\right)^2\text{ for all }A\in 2^M\text .$$
+
+
+\medskip
+ 
+
+
+\begin{thebibliography}{9}
+\bibitem{herstein1996} 
+Herstein I.N.
+\textit{Abstract Algebra}. 
+Prentice-Hall Inc., Upper Saddle River, New Jersey , 1996.
+
+\bibitem{herstein1999} 
+Herstein I.N.
+\textit{Algebra}. 
+Editori riuniti, Roma, 1999.
+
+\bibitem{holzman}
+Holzman R., Law-Yone N.
+\textit{Strong equilibrium in congestion games}.
+Games and Economic Behavior, (21):85-101, 1997.
+
+\bibitem{rosenthal}
+Rosenthal R.W.
+\textit{A class of games possessing pure-strategy Nash equilibria}.
+International Journal of Game Theory, 2: 65–67, 1973, MR 0319584, doi:10.1007/BF01737559.
+
+\bibitem{rossi}
+Rossi G.
+\textit{Games and Boolean models. Lecture notes}.
+University of Bologna, Bologna, 2017.
+
+\bibitem{voorneveld}
+Voorneveld, M. 
+\textit{Potential games and interactive decisions with multiple criteria}.
+Tilburg University: CentER, Center for Economic Research, 1999.
+
+ 
+
+\end{thebibliography}
+
+
+
+
+
+
+\end{document}

@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="combinatorics.js"></script>
 <script src="math.js"></script>
 <script src="partitions.js"></script>
@@ -146,7 +147,7 @@ function printA(){
 	
 }
 
-function cliccaNumeroGiocatori(){
+function startGame(){
 
 	
 	// INIZIALIZZO IL GIOCO
@@ -175,59 +176,12 @@ function cliccaNumeroGiocatori(){
 	N_bellSets = partitions(n);
 	//N_bellSets = JSON.parse(N_bellSets);
 	ss = JSON.parse(N_bellSets);
+	pp = [];
+	pp.push(ss);
+	pp.push(ss);
+	S = cartesianProductOf(pp);
 	
-	
-	// A^1 - Alternative primitive (strategies) - con 1 giocatore
-	for (i=0; i<a; i++){
-		A.push(u(i+1));
-	}
-	
-	S = A.slice();
-	for (i=1; i<n; i++){
-		S = Combinatorics.cartesianProduct(S, A);
-		S = S.toArray();	
-	}
-	
-	
-	
-	
-	
-
-	
-	//$('#alternatives').append(S.toArray());	
-	//S.toArray()
-	
-	// S = A^2 - Strategies - con 2 giocatori
-	// tutte le possibili tuple di lunghezza |A| da 1 a |A|*|A|
-	
-	
-	
-	// S = A^3 = A^2 * A - Strategies - con 3 giocatori
-	
-	
-	$('#players').html('');
-	$('#N_bellSets').html('');
-	
-	N.forEach(function s(valoreCorrente, indiceN, array){		
-		$('#players').append('<h5>Player ' + (indiceN+1) + '</h5>' );
-		$('#players').append('Best choice = ' + '<br />');
-		
-		S.forEach(function s(valoreCorrente, indice, array){		
-			$('#players').append('Prospetto ' + (indice+1) + ': <input type="text" value="'+ valoreCorrente +'"><br />');			
-		});
-		
-		
-	});
-	
-	
-	// 
-	printA();
-	
-	//
-	$('#N_bellSets').append(N_bellSets + '<br />');
-	
-	document.write(cartProd([[1,2],[3,4]]));
-	
+	$('#s').append(S);
 }
 </script>
 </head>
@@ -262,27 +216,11 @@ $
 
 <h3>2. Click Start Game button</h3>
 
-<input type="button" onclick="cliccaNumeroGiocatori()" value="Start Game">
+<input type="button" onclick="startGame()" value="Start Game">
 
 
-<div id="result">
-	<div id="alternatives">	
-	<h3>Strategie</h3>
-	</div>
-
-	<h3>Players</h3>
-	<div id="players">	
-	</div>
-	
-	<h3>Game</h3>
-	<h5>All partitions of N</h5>
-	<div id="N_bellSets"></div>
-</div>
-
-<h3>Tabella Dati</h3>
-<table id="tabDati">
-
-
-</table>
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+<h3>2. RESULT</h3>
+<div id="s"></div>
 
 </body>

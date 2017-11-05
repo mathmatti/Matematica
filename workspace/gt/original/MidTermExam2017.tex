@@ -1,0 +1,90 @@
+\documentclass{article}
+
+\usepackage{amsmath,amsfonts,amssymb}
+
+\begin{document}
+
+\title{Games and Boolean models - mid-term exam}
+\author{Giuseppe Baudo\\
+{\footnotesize LM Informatics}\\
+{\footnotesize University  of Bologna}}
+\maketitle
+
+{\footnotesize \textsl{Instructions:}
+\begin{itemize}
+\item Edit your work using the provided tex file. Hand in your work as a LaTex-generated pdf file attached to an e-mail addressed to roxyjean at gmail.com,
+by the end (i.e. 24:00) of sunday 12 November 2017. Your name should appear both as the author above, and in the chosen tex/pdf files names.
+
+\item All solution methods and corresponding computations have to be carefully commented, either in English or in Italian. Any part of the work consisting of
+non-commented computations and/or expressions shall be disregarded.
+\end{itemize}
+}
+
+\section{Exercise}
+For an even integer $m$, let $M=\{1,\ldots,m\}$ and define $f:M\rightarrow M$ by
+$$f(k)=\left\{\begin{array}{c}\frac{m}{2}+k\text{ if }1\leq k\leq\frac{m}{2}\text ,\\ k-\frac{m}{2}\text{ if }\frac{m}{2}<k\leq m\text .\end{array}\right .$$
+\begin{enumerate}
+\item Characterize binary relation $R^f$ on $M$ defined by
+$$R^f=\{(k,f(k)):1\leq k\leq m\}\subset M\times M$$
+in terms of (ir)reflexivity, (a/anti)symmetry, transitivity and completeness. Determine the number of 1s in Boolean matrix $\mathcal M^{R^f}\in\{0,1\}^{m\times m}$
+representing $R^f$, i.e.
+$\mathcal M_{kl}^{R^f}=\left\{\begin{array}{c}1\text{ if }(k,l)\in R^f\text ,\\0\text{ if }(k,l)\in M\times M\backslash R^f\text ,\end{array}\right .$
+$1\leq k,l\leq m$.
+
+\item Identify a ($\supseteq$-)minimal rational preference (binary relation) $R^{\succsim^*}$ satisfying $R^{\succsim^*}\supseteq R$. How many 1s are in
+Boolean matrix $\mathcal M^{R^{\succsim^*}}$? Also determine the corresponding ordered partition $\mathfrak P^{\succsim^*}=(A_1,\ldots,A_{|\mathfrak P^{\succsim^*}|})$
+of $M$.
+\end{enumerate}
+
+\section{Exercise}
+For player set $N=\{1,\ldots ,n\}$ and strategy set $\mathbb S_i=\{0,1\}$ for all $i\in N$, let
+$$u_i(s)=u_i(s_i,s_{-i})=\left(s_i-\sum_{j\in N}\frac{s_j}{n}\right)^2\text{ for all strategy profiles }s\in\{0,1\}^n\text .$$
+\begin{enumerate}
+\item Is this a common interest game? If yes, then determine the (non-empty) set of strategy profiles where each player attains the maximum payoff. If no, then show
+that different players have different optimal strategy profiles. Is this a constant-sum game? If yes, then show that any two strategy profiles $s,s'\in\{0,1\}^n$
+provide the same aggregate payoff, that is to say $\sum_{i\in N}u_i(s)=\sum_{i\in N}u_i(s)$. If no, then show that there are different strategy profiles providing
+different aggregate payoffs. Are there Pareto-dominated strategy profiles? If yes, then determine all pairs of strategy profiles one of which Pareto-dominates the
+other. If no, then show that for any pair of strategy profiles neither one Pareto-dominates the other.
+
+\item Regarding this as a congestion game with a 2-set $\{0,1\}$ of facilities, denote by $u_0(k)$ the utility attained by playing 0 when the number of those playing 0
+is $k$ and by $u_1(k)$ the utility attained by playing 1 when the number of those playing 1 is $k$. Verify whether the game is monotone and, in particular, whether
+$$u_0(k)-u_0(k+1)=u_1(k)-u_1(k+1)$$ for all $1\leq k<n$. For $1<k<n$, denote by $s_0^k\in\{0,1\}^n$ any of the $\binom{n}{k}$ strategy profiles where $k=|\{i:s_i=0\}|$,
+and by $\textbf P:\{0,1\}^n\rightarrow\mathbb R$ the exact potential function. Determine $\textbf P(s_0^k)$. Is there any relation between the set of strong equilibria
+and the set of equilibria (with non-random strategies)? How many equilibria are there?
+
+\item Verify whether the $n$-tuple of random strategies $\frac{\textbf 1}{\textbf 2}\in[0,1]^n$ where every $i\in N$ plays both 0 and 1 with equal probability, i.e.
+$\frac{1}{2}$, is an equilibrium. 
+\end{enumerate}
+
+\section{Exercise}
+For $M=\{1,\ldots,m\}$, consider the symmetric congestion game where every player $i\in N=\{1,\ldots,n\}$ has strategy set $\mathbb S_i=\mathcal K\subset 2^{2^M}$
+consisting of the $m!$ \textit{maximal chains} $\{A_0,A_1,\ldots,A_{m-1},A_m\}\in\mathcal K$ of subsets of $M$. That is,
+$$M=A_m\supset^*A_{m-1}\supset^*\cdots\supset^*A_1\supset^*A_0=\emptyset\text{, where }$$
+$$A_k\supset^*A_{k-1}\Leftrightarrow A_k\supset A_{k-1},|A_k|=|A_{k-1}|+1\text{ }(1\leq k\leq m)$$
+is the \textit{covering relation}. Hence the set of facilities is $\{A:\emptyset\subset A\subset M\}$. For every strategy profile $s=(s_1,\ldots,s_n)\in\mathcal K^n$,
+denote $i$'s strategy ($i\in N$) by
+$$s_i=\{A_0,A_1^i,\ldots,A_{m-1}^i,A_m\}\in\mathcal K\text ,$$
+and define congestion vector $\{c_A(s):\emptyset\subset A\subset M\}\in\mathbb Z_+^{2^m-2}$ by
+$$c_A(s)=|\{i:A\in s_i\}|\text .$$
+Finally, utilities have form
+$$u_i(s)=\sum_{0<k<m}\frac{1}{c_{A^i_k}(s)}\text .$$
+In what follows, distinguish between cases (a) $n\leq m$ and (b) $n=m!$.
+\begin{enumerate}
+\item Is this a common interest game? If yes, then determine the (non-empty) set of strategy profiles where each player attains the maximum payoff. If no, then show
+that different players have different optimal strategy profiles. Is this a constant-sum game? If yes, then show that any two strategy profiles $s,s'\in\{0,1\}^n$
+provide the same aggregate payoff, that is to say $\sum_{i\in N}u_i(s)=\sum_{i\in N}u_i(s)$. If no, then show that there are different strategy profiles providing
+different aggregate payoffs. Are there Pareto-dominated strategy profiles? If yes, then provide examples of pairs of strategy profiles one of which Pareto-dominates the
+other. If no, then show that for any pair of strategy profiles neither one Pareto-dominates the other.
+\item Characterize the set of equilibria and the set of strong equilibria (with non-random strategies). Compute the value $\textbf P(s)$ taken by the exact potential
+\textbf P at any equilibrium $s$.
+\item Verify whether the random strategy profile consisting of $n$ uniform distributions over the $m!$-set $\mathcal K$ of maximal chains is an equilibrium or not.
+\end{enumerate}
+
+\section{Exercise}
+Let $M=\{1,\ldots,10\}$ and define $f:M\rightarrow\{0,1\}$ by
+$f(i)=\left\{\begin{array}{c}1\text{ if }i\text{ is a prime,}\\0\text{ otherwise.}\end{array}\right .$
+Compute the discrete Choquet integral $E_{\eta}^C(f)$ of $f$ with respect to fuzzy probability $\eta:2^M\rightarrow[0,1]$ defined by
+$$\eta(A)=\binom{11}{2}^{-2}\left(\sum_{i\in A}i\right)^2\text{ for all }A\in 2^M\text .$$
+
+
+\end{document}
