@@ -4,6 +4,7 @@
 \usepackage[usenames, dvipsnames]{color}
 \usepackage{amsthm}
 
+\newtheorem{defn}{Definition}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -26,6 +27,13 @@ by the end (i.e. 24:00) of sunday 12 November 2017. Your name should appear both
 non-commented computations and/or expressions shall be disregarded.
 \end{itemize}
 }
+
+{\footnotesize \textsl{\textcolor{red}{Notes for the Teacher}:}
+	\begin{itemize}
+		\item Answers to execerices are given by proposition environments. When an answer (proposition) has a motivation it is given by a proof environment.
+	\end{itemize}
+}
+
 
 \section{Exercise}
 For an even integer $m$, let $M=\{1,\ldots,m\}$ and define $f:M\rightarrow M$ by
@@ -188,6 +196,7 @@ $\frac{1}{2}$, is an equilibrium.
 \subsubsection{Prerequisites}
 \begin{itemize}
  \item See \cite{holzman}, \cite{rosenthal}, \cite{rossi}, \cite{voorneveld}
+ \item Preference relation. reflexive, transitive and complete.
  \item Preference aggregation. mainly \cite{rossi};
  \item Common interest game. mainly \cite{rossi};
  \item Potential game.
@@ -202,7 +211,7 @@ $\frac{1}{2}$, is an equilibrium.
  \item $\mathbb{S}_i = \{ 0,1 \}$ = A set of $2$ elements called strategies. A strategy can have many levels, in fact an element of $\mathbb{S}_i$ can be another set of strategies and so on. For flat strategy set we use the name \emph{alternative}. I the our game there are $n$ strategy sets. Each element of the strategy set $\mathbb{S}_i$ has value $0$ or $1$. Nevertheless, the process of value assignment can continue to infinity if we look at $0$ and $1$ not as number or as value of real set $\mathbb{R}$ but as a name indicating a choice. \\
  In altre parole, assumiamo che gli elementi di $\mathbb{S}_i$ siano i numeri reali $0,1 \in \mathbb{R}$.
  \item $\mathbb{S} = \mathbb{S}_1 \times, ..., \times \mathbb{S}_n$. Strategy profiles set. Insieme di ennuple $(a_1, ..., a_n)$ con $a_1, a_n \in \{0,1\} \subseteq \mathbb{R}$. Insieme degli outcomes. Insieme dei prospetti. In condizione di completa informazione ogni giocatore conosce tutti i prospetti ed il rispettivo valore dato dalla sua funzione di utilit\`a $u_i$.
- \item $s \in \mathbb{S}$
+ \item $s \in \mathbb{S}$, $s^* \in \mathbb{S}$
  \item $s_i$. Sia data $s \in \mathbb{S} = (s_1, ..., s_n)$ una tupla, allora $s_i$ indica l'iesimo elemento all'interno della tupla $s$. E.g. $s=(3,6,9,45)$ allora $s_2 = 6$. Per fortuna tutti gli indici iniziano da $1$. Sottolineamo questo fatto perch\`e molto spesso in computer science and specifically in programming languages indices start from $0$.
  \item $s_{-i}$ = E.g. $s_{-2} = (3,9,45)$. Questa notazione serve per poter suddividere le componenti o coordinate del generico settore. Una volta distinte da diversi nomi le coordinate possono essere utilizzate nella definizione della funzione stessa.
  \item $(s_i, s_{-i})$ = E.g. $(6,(3,9,45)) = (3,6,9,45)$.
@@ -211,22 +220,115 @@ $\frac{1}{2}$, is an equilibrium.
 
 
 \subsubsection{Is this a common interest game?}
+
+\begin{defn}
+	\textcolor{blue}{Common interest games} are those where there is a strategy profile $s^* \in \mathbb{S}$ such that $s^* \gtrsim_i s$ for all $s \in \mathbb{S}$. \cite{rossi}.
+\end{defn}
+
+In altre parole, nei common interest games esiste una strategia che \`e preferita da tutti i giocatori. In altre parole, il best response set di tutti i giocatori \`e diverso dall'insieme vuoto. E qui sta l'inghippo, l'intersezione non va fatta a gruppi di due giocatori, ma per tutti i giocatori. \textcolor{red}{Bisogna intersecare il best response set di tutti i giocatori}.
+
+\noindent
+{\color{blue} \rule{\linewidth}{0.5mm} }
+\textcolor{red}{svolgimento ERRATO}
+
+\begin{defn}
+	A game $\Gamma$ is a common interest game iif Best response strategy set for player $i$ intersecanting best response strategy set for player $j$ is not empty. 
+\end{defn}
+
+In altre parole il comune interesse \`e modellato sull'intersezione di insiemi. Che potremmo assiomatizzare come segue: \\
+
+Let $A$ be a set, let $B$ be a set then if $A \cap B = \O$ indica che non c'\`e comune interesse. 
+
+Potremmo restringere la definizione sopra e considerare il caso ovvero l'insieme delle strategie in cui la utility function del giocatore $i$-esimo restituisce un valore maggiore di zero.
+
 \begin{prop}
  $\Gamma$ is a common interest game.
 \end{prop}
 
+
+\noindent
+{\color{blue} \rule{\linewidth}{0.5mm} }
+\textcolor{green}{svolgimento CORRETTO}
+
+\begin{prop}
+	$\Gamma$ isn't a common interest game.
+\end{prop}
+
 \begin{proof}
- 
+	We'll prove that this proposition is false by constructing a set of strategy profiles that are elements of $BR_i \cap BR_j$ for all $i,j \in \mathbb{N}$. Those construction can be given by strategy profiles in which there are $k=2$ quantit\'a di $1$s.
+	Either for $i$ and $j$ playing $1$s is the best responses when $i$ or $j$ play $1$s and the others play $0$. So, for all $i$ and $j \in \mathbb{N}$. So $\Gamma$ is a common interest game. \textcolor{red}{Contraddiction}. 
 \end{proof}
 
-
-
 \subsubsection{Is this a constant-sum game?}
-yes, is a zero-sum game.
+\begin{prop}
+	$\Gamma$ is a constant-sum game. 
+\end{prop}
+\begin{proof}
+	For $n=3$ players let be $s,s^*$ two strategy profiles with $s^*=(0,0,0)$ and $s=(1,0,0)$ then the sum of the payoffs of the players is not equals for $s$ and $s^*$.
+	\[
+	 u_1(s^*)+u_2(s^*)+u_3(s^*) \ne u_1(s)+u_2(s)+u_3(s)
+	\]
+	\textcolor{red}{Contraddiction}
+\end{proof}
+
+\emph{Per i calcoli si rimanda al companion html/javascript file containing some code examples on how to calculate combination on a set of class k}.
 
 \subsubsection{Are there Pareto-dominated strategy profiles?}
+\begin{prop}
+	$\mathbb{S}$ contains pareto-dominated strategy profiles.
+\end{prop}
+\begin{proof}
+	For all games strategy profiles in which every player play $0$ or every player play $1$ are pareto-dominated strategy profiles because if a player deviates from its choice then obtain a plus and no other player can do less than they do.
+\end{proof}
 
 \subsubsection{Regarding as congestion game}
+
+For $n=4$
+
+\begin{center}
+	\begin{tabular}{c c c c c}		
+		$s$	 &   $(u_1(s), u_2(s), u_3(s), u_4(s) )$ &	$u_1 + u_2 + u_3$ &	num of $0$s	& num of $1$s \\
+		0000 &	(0, 0, 0, 0, )                       &	0    & 4 & 0 \\
+		0001 &	(0.0625, 0.0625, 0.0625, 0.5625, ) &	0.75 & 3 & 1 \\
+		0010 &	(0.0625, 0.0625, 0.5625, 0.0625, ) &	0.75 & 3 & 1 \\
+		0011 &	(0.25, 0.25, 0.25, 0.25, )         &	1    & 2 & 2 \\
+		0100 &	(0.0625, 0.5625, 0.0625, 0.0625, ) &	0.75 &	3 &	1 \\
+		0101 &	(0.25, 0.25, 0.25, 0.25, )         &	1    &	2 &	2 \\
+		0110 &	(0.25, 0.25, 0.25, 0.25, )         & 	1	 &  2 &	2 \\
+		0111 &	(0.5625, 0.0625, 0.0625, 0.0625, ) &	0.75 &	1 & 3 \\
+		1000 &	(0.5625, 0.0625, 0.0625, 0.0625, ) &	0.75 &	3 &	1 \\
+		1001 &	(0.25, 0.25, 0.25, 0.25, )         &	1    & 	2 &	2 \\
+		1010 &	(0.25, 0.25, 0.25, 0.25, )         &	1    &	2 &	2 \\
+		1011 &	(0.0625, 0.5625, 0.0625, 0.0625, ) &	0.75 & 	1 &	3 \\
+		1100 &	(0.25, 0.25, 0.25, 0.25, )         &	1    &	2 &	2 \\
+		1101 &	(0.0625, 0.0625, 0.5625, 0.0625, ) &	0.75 &	1 &	3 \\
+		1110 &	(0.0625, 0.0625, 0.0625, 0.5625, ) &	0.75 &	1 &	3 \\
+		1111 &	(0, 0, 0, 0, )                     &	0    &	0 &	4
+\end{tabular}
+\end{center}
+
+Inoltre, \\
+
+$u_0(k) = u_0(0) = 0$ \\
+$u_0(k) = u_0(1) = 0.5625$ \\
+$u_0(k) = u_0(2) = 0.25$ \\
+$u_0(k) = u_0(3) = 0,0625$ \\
+$u_0(k) = u_0(4) = 0$ \\
+
+And,
+
+$u_1(k) = u_1(0) = 0$ \\
+$u_1(k) = u_1(1) = 0.5625$ \\
+$u_1(k) = u_1(2) = 0.25$ \\
+$u_1(k) = u_1(3) = 0,0625$ \\
+$u_1(k) = u_1(4) = 0$ \\
+
+So, \\
+
+$u_0(0) - u_0(1) = 0 - 0.5625$ \\
+$u_1(0) - u_1(1) = 0 - 0.5625$ \\
+
+Then, $u_0(0) - u_0(1) = u_1(0) - u_1(1)$
 
 
 
