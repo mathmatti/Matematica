@@ -31,7 +31,7 @@ function esercizio2(){
 	log('<br/>Generazione delle combinazioni con ripetizioni: ' + '<br/>');
 	
 	// GENERAZIONE TABELLA
-	log('<h2>Esercizio 2 punto 1</h2>');
+	log('<h2>Esercizio 2</h2>');
 	var tab = '<table>';
 	tab=tab + '<tr><th>Strategy</th><th>Players\'s payoffs(e.g. (a,b) a payoff giocatore 1, b payoff giocatore 2 giocando la strategia)</th><th>$u_1 + u_2 + u_3$</th><th># of 0s</th><th># of 1s</th>';
 	for (i=0;i<comb_rip;i++){		
@@ -85,65 +85,6 @@ function esercizio2(){
 
 	
 }
-
-function esercizio2_p2(){
-	var n = document.getElementById('n').value;
-	var S = [];
-	var s = '';
-	var u = 0;
-	
-
-	var comb_rip = Math.pow(2,n); log('comb_rip = ' + comb_rip);
-	log('<br/>Generazione delle combinazioni con ripetizioni: ' + '<br/>');
-	
-	// GENERAZIONE TABELLA
-	log('<h2>Esercizio 2 punto 2</h2>');
-	var tab = '<table>';
-	tab=tab + '<tr><th>Strategy</th><th>u_0(k)</th><th>u_1(k)</th><th>$u_1 + u_2 + u_3$</th>';
-	for (i=0;i<comb_rip;i++){
-		s = (i >>> 0).toString(2);
-		for (j=s.length;j<n;j++){
-			//aggiungo gli zeri iniziali
-			s = '0'+s; 
-		}
-		tab = tab + '<tr>';
-		tab = tab + '<td>' + s + '</td>';
-		
-		tab = tab + '<td>';
-		tab = tab + '(';
-		tot_strat = 0;
-		for (k=0; k<n; k++){  // per ogni player
-			u = 0;
-			if(s.substring(k,k+1) == '1'){
-				u = 1;
-			}
-			for (l=0; l<s.length; l++){ // per ogni s_i \in s
-				if(s.substring(l,l+1) =='1'){
-					u = u - (1/n);
-				}
-			}
-			tot_strat = tot_strat + Math.pow(u,2);
-			tab = tab + Math.pow(u,2) + ', ';
-		}
-		tab = tab + ')';
-		tab = tab + '</td>';
-
-		tab = tab + '<td>' + tot_strat + '</td>';
-		tab = tab + '</tr>';
-		//S.push(s);
-	}
-	tab = tab + '</table>';
-	log(tab);
-
-	//log('Stampo gli elementi di S '+ '<br/>');
-	//S.forEach(function f(item, indice, arr){
-	//	console.log(item);
-    //	log(item + '<br/>');
-	//});
-
-	
-}
-
 </script>	
 
 

@@ -34,7 +34,13 @@ non-commented computations and/or expressions shall be disregarded.
 	\end{itemize}
 }
 
+{\footnotesize \textsl{\textcolor{blue}{from Ryser \cite{ryser01}}:}
+	\emph{Our definitions and proofs are concise and they deserve careful scrutiny. But effort and ingenuity lead to mastery, and our subject holds rich for those who learn its secrets}.
+}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%           							EXCERCISE 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Exercise}
 For an even integer $m$, let $M=\{1,\ldots,m\}$ and define $f:M\rightarrow M$ by
 $$f(k)=\left\{\begin{array}{c}\frac{m}{2}+k\text{ if }1\leq k\leq\frac{m}{2}\text ,\\ k-\frac{m}{2}\text{ if }\frac{m}{2}<k\leq m\text .\end{array}\right .$$
@@ -58,7 +64,7 @@ of $M$.
  \item Set: an abstract aggregate of elements.
  \item Mapping: a way to create new sets.
  \item mapping: a properties holding on element(s) of set.
- \item Binary relation: see \cite{herstein1996}, \cite{herstein1999} and \cite{rossi}.
+ \item Binary relation: see \cite{herstein1996}, \cite{herstein1999} and \cite{rossi01}.
 \end{itemize}
 
 \subsubsection{Notation}
@@ -171,6 +177,9 @@ La funzione $f$ potrebbe essere vista anche come $k \equiv f(k)\ (\textrm{mod}\ 
 There are $m$ 1s in the boolean matrix representing $R^f$.
 \end{prop}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%           							EXCERCISE 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Exercise}
 For player set $N=\{1,\ldots ,n\}$ and strategy set $\mathbb S_i=\{0,1\}$ for all $i\in N$, let
 $$u_i(s)=u_i(s_i,s_{-i})=\left(s_i-\sum_{j\in N}\frac{s_j}{n}\right)^2\text{ for all strategy profiles }s\in\{0,1\}^n\text .$$
@@ -195,10 +204,10 @@ $\frac{1}{2}$, is an equilibrium.
 
 \subsubsection{Prerequisites}
 \begin{itemize}
- \item See \cite{holzman}, \cite{rosenthal}, \cite{rossi}, \cite{voorneveld}
+ \item See \cite{holzman}, \cite{rosenthal}, \cite{rossi01}, \cite{voorneveld}
  \item Preference relation. reflexive, transitive and complete.
- \item Preference aggregation. mainly \cite{rossi};
- \item Common interest game. mainly \cite{rossi};
+ \item Preference aggregation. mainly \cite{rossi01};
+ \item Common interest game. mainly \cite{rossi01};
  \item Potential game.
  \item Congestion game.
  \item Dominance.
@@ -222,7 +231,7 @@ $\frac{1}{2}$, is an equilibrium.
 \subsubsection{Is this a common interest game?}
 
 \begin{defn}
-	\textcolor{blue}{Common interest games} are those where there is a strategy profile $s^* \in \mathbb{S}$ such that $s^* \gtrsim_i s$ for all $s \in \mathbb{S}$. \cite{rossi}.
+	\textcolor{blue}{Common interest games} are those where there is a strategy profile $s^* \in \mathbb{S}$ such that $s^* \gtrsim_i s$ for all $s \in \mathbb{S}$. \cite{rossi01}.
 \end{defn}
 
 In altre parole, nei common interest games esiste una strategia che \`e preferita da tutti i giocatori. In altre parole, il best response set di tutti i giocatori \`e diverso dall'insieme vuoto. E qui sta l'inghippo, l'intersezione non va fatta a gruppi di due giocatori, ma per tutti i giocatori. \textcolor{red}{Bisogna intersecare il best response set di tutti i giocatori}.
@@ -331,7 +340,9 @@ $u_1(0) - u_1(1) = 0 - 0.5625$ \\
 Then, $u_0(0) - u_0(1) = u_1(0) - u_1(1)$
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%           							EXCERCISE 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Exercise}
 For $M=\{1,\ldots,m\}$, consider the symmetric congestion game where every player $i\in N=\{1,\ldots,n\}$ has strategy set $\mathbb S_i=\mathcal K\subset 2^{2^M}$
 consisting of the $m!$ \textit{maximal chains} $\{A_0,A_1,\ldots,A_{m-1},A_m\}\in\mathcal K$ of subsets of $M$. That is,
@@ -356,9 +367,17 @@ other. If no, then show that for any pair of strategy profiles neither one Paret
 \item Verify whether the random strategy profile consisting of $n$ uniform distributions over the $m!$-set $\mathcal K$ of maximal chains is an equilibrium or not.
 \end{enumerate}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%           							EXCERCISE 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Exercise}
-Let $M=\{1,\ldots,10\}$ and define $f:M\rightarrow\{0,1\}$ by
-$f(i)=\left\{\begin{array}{c}1\text{ if }i\text{ is a prime,}\\0\text{ otherwise.}\end{array}\right .$
+Let $M=\{1,\ldots,10\}$ and define \\
+Let $f:M\rightarrow\{0,1\}$ by \\
+Let $f(i)=\left\{\begin{array}{c}
+                        1\text{ if }i\text{ is a prime,}\\
+                        0\text{ otherwise.}
+             \end{array}\right .$
 Compute the discrete Choquet integral $E_{\eta}^C(f)$ of $f$ with respect to fuzzy probability $\eta:2^M\rightarrow[0,1]$ defined by
 $$\eta(A)=\binom{11}{2}^{-2}\left(\sum_{i\in A}i\right)^2\text{ for all }A\in 2^M\text .$$
 
@@ -366,7 +385,9 @@ $$\eta(A)=\binom{11}{2}^{-2}\left(\sum_{i\in A}i\right)^2\text{ for all }A\in 2^
 \medskip
  
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%           							BIBLIOGRAPHY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{9}
 \bibitem{herstein1996} 
 Herstein I.N.
@@ -388,10 +409,16 @@ Rosenthal R.W.
 \textit{A class of games possessing pure-strategy Nash equilibria}.
 International Journal of Game Theory, 2: 65–67, 1973, MR 0319584, doi:10.1007/BF01737559.
 
-\bibitem{rossi}
+\bibitem{rossi01}
 Rossi G.
 \textit{Games and Boolean models. Lecture notes}.
 University of Bologna, Bologna, 2017.
+
+\bibitem{ryser01}
+Ryser H.J.
+\textit{Combinatorial mathematics}.
+J. Wiley and sons, Inc., Rahway, New Jersey, 1963.
+
 
 \bibitem{voorneveld}
 Voorneveld, M. 
