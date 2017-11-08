@@ -3,6 +3,7 @@
 \usepackage{amsmath,amsfonts,amssymb}
 \usepackage[usenames, dvipsnames]{color}
 \usepackage{amsthm}
+\usepackage{mnsymbol}
 
 \newtheorem{defn}{Definition}
 \newtheorem{theorem}{Theorem}[section]
@@ -370,6 +371,22 @@ other. If no, then show that for any pair of strategy profiles neither one Paret
 \subsection{Solution}
 \subsubsection{Prerequisites}
 
+\begin{defn}
+	For any \emph{symmetric congestion game form} $F = (N, M, \times_{j \in \mathbb{N}} \mathbb{S}_j )$, if union $\cup_{j \in N} \mathbb{S}_j$ diplays no bad configuration, then $SE(\Gamma) = NE(\Gamma)$ for all monotone congestion games $\Gamma$ derived from $F$.
+\end{defn}
+\begin{itemize}
+	\item bad configuration ???
+	\item monotone congestion game ???
+	\item non-singleton strategies
+\end{itemize}
+
+\begin{defn}
+	Union $\cup_{j \in N} \mathbb{S}_j$ of all $n$ strategy sets diplays a \emph{bad configuration} if there are two facilities $a, a' \in M$ and three strategies $s, s', s'' \in \cup_{j \in N} \mathbb{S}_j$ such that $a \in s \nowns a'$ and $a \not\in s' \owns a'$ while $a, a' \in s''$ (this indeed may be regarded as an acyclity condition for deviations of non-singleton coalitions, to be compared with the finite improvement property of all potential games). \cite{rossi01}.
+\end{defn}
+\begin{itemize}
+	\item non-singleton strategies
+\end{itemize}
+
 \subsubsection{Notation}
 \begin{itemize}
 	\item $\mathcal{K}$ = a set.
@@ -380,7 +397,7 @@ other. If no, then show that for any pair of strategy profiles neither one Paret
 \subsubsection{Analysis of the game definition}
 \begin{verbatim}
 
-    LET G be SYMMETRIC CONGESTION GAME
+    LET G = (N, M, u) be SYMMETRIC CONGESTION GAME
 	LET M be SET
 	LET m be |M|, m also represents the (variable)name of the m-nth element..
 	LET k be INDICES of M
