@@ -184,7 +184,7 @@ There are $m$ 1s in the boolean matrix representing $R^f$.
 For player set $N=\{1,\ldots ,n\}$ and strategy set $\mathbb S_i=\{0,1\}$ for all $i\in N$, let
 $$u_i(s)=u_i(s_i,s_{-i})=\left(s_i-\sum_{j\in N}\frac{s_j}{n}\right)^2\text{ for all strategy profiles }s\in\{0,1\}^n\text .$$
 \begin{enumerate}
-\item Is this a common interest game? If yes, then determine the (non-empty) set of strategy profiles where each player attains the maximum payoff. If no, then show
+\item Is this a interest game? If yes, then determine the (non-empty) set of strategy profiles where each player attains the maximum payoff. If no, then show
 that different players have different optimal strategy profiles. Is this a constant-sum game? If yes, then show that any two strategy profiles $s,s'\in\{0,1\}^n$
 provide the same aggregate payoff, that is to say $\sum_{i\in N}u_i(s)=\sum_{i\in N}u_i(s)$. If no, then show that there are different strategy profiles providing
 different aggregate payoffs. Are there Pareto-dominated strategy profiles? If yes, then determine all pairs of strategy profiles one of which Pareto-dominates the
@@ -367,6 +367,51 @@ other. If no, then show that for any pair of strategy profiles neither one Paret
 \item Verify whether the random strategy profile consisting of $n$ uniform distributions over the $m!$-set $\mathcal K$ of maximal chains is an equilibrium or not.
 \end{enumerate}
 
+\subsection{Solution}
+\subsubsection{Prerequisites}
+
+\subsubsection{Notation}
+\begin{itemize}
+	\item $\mathcal{K}$ = a set.
+	\item $\textbf P(s)$ = funzione potenziale.
+	\item $\textbf P$ = potenziale.
+\end{itemize}
+
+\subsubsection{Analysis of the game definition}
+\begin{verbatim}
+
+    LET G be SYMMETRIC CONGESTION GAME
+	LET M be SET
+	LET m be |M|, m also represents the (variable)name of the m-nth element..
+	LET k be INDICES of M
+	LET A_k be SET ??? kappesimo sottoinsieme di di elementi di M
+	LET A_k IN 2^M
+	LET |2^M| = 2^m
+	LET A be SET
+	LET XXX be a CHAIN
+	
+	LET K^n be SET - of all stategy profiles
+	LET s be ELEMENTS of K^n
+\end{verbatim}
+
+\subsubsection{Is this a common interest game?}
+\begin{defn}
+	\textcolor{blue}{Common interest games} are those where there is a strategy profile $s^* \in \mathbb{S}$ such that $s^* \gtrsim_i s$ for all $s \in \mathbb{S}$. \cite{rossi01}.
+\end{defn}
+
+Who are the strategy profiles in this game?
+
+\subsubsection{Is this a constant-sum game?}
+
+\subsubsection{Are there Pareto-dominated strategy profiles.}
+
+\subsubsection{Characterize the set of equilibria.}
+
+\subsubsection{Characterize the set of strong equilibria}
+
+\subsubsection{Compute the value $P(s)$ taken by the exact potential $P$ at any equilibrium $s$.}
+
+\subsubsection{Verify whether random strategy profile consisting of $n$ uniform distributions over the $m!$.set $\mathcal{K}$ of maximal chains is an equilibrium or not.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%           							EXCERCISE 4
@@ -413,6 +458,11 @@ International Journal of Game Theory, 2: 65–67, 1973, MR 0319584, doi:10.1007/
 Rossi G.
 \textit{Games and Boolean models. Lecture notes}.
 University of Bologna, Bologna, 2017.
+
+\bibitem{rossi02}
+Rossi G.
+\textit{Objective function-based clustering via near optimization}.
+Department of Computer Science and Engineering DISI, University of Bologna, 2017.
 
 \bibitem{ryser01}
 Ryser H.J.
