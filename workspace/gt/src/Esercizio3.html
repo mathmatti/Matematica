@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+<!--<meta charset="UTF8">-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+
+<script>
+
+
+
+
+	
+
+function log(text, id='app'){	
+	var old = document.getElementById(id).innerHTML;
+	document.getElementById(id).innerHTML = old + text;
+}
+
+
+function esercizio3(){	
+	
+	// input data
+	var n = document.getElementById('n').value;		
+	var s = '';
+	var s_i = '';
+	var liv = [];
+	var zeros = 0;
+	var unos = 0;	
+	
+	var comb_rip = Math.pow(2,n); log('comb_rip = ' + comb_rip + '<br />');	
+
+	
+	// Clear area
+	document.getElementById('app').innerHTML = '';
+	document.getElementById('path').innerHTML = '';
+	
+	for (i=0; i<comb_rip; i++) { // for each subset
+		s = (i >>> 0).toString(2);
+		for (j=s.length;j<n;j++){
+			//aggiungo gli zeri iniziali
+			s = '0'+s; 
+		}
+		
+		//conto quanti elementi
+		unos = 0; // e.g. unos = 3 is a set with three elements.
+		zeros = 0;
+		for (j=0;j<n;j++){
+			ch = s.charAt(j);
+			if (ch=='1'){
+				unos++;
+			} else {
+				zeros++;
+			}
+		}
+		
+		if (typeof liv[unos] == 'undefined'){
+			liv[unos] = [];			
+		}
+		
+		liv[unos].push(s);		
+	}
+		
+	for (i=0;i<=n;i++) {
+		
+		log('Liv. ' + i + ' ');
+		log('S_' + (i+1) + ' = ' + '<br />','path');		
+		
+		for(k=0;k<liv[i].length;k++) { // scorro gli insiemi di livello i
+			log(liv[i][k] + ' ');
+			
+			if(liv[i][k][i]=='1' && i==k){ // Is i elements?
+				log(liv[i][k] + '<br/>', 'path');
+			}
+			
+		}
+		log('<br /><br />');
+	}
+	
+}
+
+function paths(){
+	// Devo stampare S_i
+	
+	
+}
+</script>	
+
+
+
+</head>
+
+<body>
+Number of players: <input type="text" value="4" id="n"><br/>
+<input type="button" onclick="esercizio3()" value="Start Game">
+<br />
+<br />
+<div id="app"></div>
+
+<br />
+<br />
+
+Paths: from <input type="text" value="0" id="a"> to <input type="text" value="4" id="b"><br />
+<input type="button" onclick="paths()" value="Calcola paths">
+
+<div id="path"></div>
+</body>
