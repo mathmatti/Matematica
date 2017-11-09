@@ -476,7 +476,7 @@ La generica strategia $s$ \`e un insieme di sottoinsiemi. Quanto vale un insieme
 \begin{defn}
 	The congestion vector $\{c_A(s):\emptyset\subset A\subset M\}\in\mathbb Z_+^{2^m-2}$ is defined by $$c_A(s)=|\{i:A\in s_i\}|\text .$$
 \end{defn}
-The congestion vector is a set. To calculate the number of elements of the congestion vector we need two inputs: a set $A$ and a generic strategy profile $s$. \\
+The congestion vector is a vector. To calculate components of the congestion vector we need two inputs: a set $A$ and a generic strategy profile $s$. \\
 
 Nel nostro caso il congestion vector sar\`a una ennupla di due elementi. In realt\`a avremo quattro ennuple di due elementi.
 \[ c_{(1,2,3,4)} (s) = 4 \]
@@ -488,11 +488,21 @@ Then $c(s) = (4,4,1,1)$ \\
 
 Where $c_{(1,2,3,4)}(s)$ represents the number of player that holds $$ 1,2,3,4 $$ as subset.
 
-\paragraph{u_1(s)}
+\paragraph{Who is $A_k^i$?}
+$A_k^i$ is a subset of $M$ and specifically it is the facility that occupy the $k$-level of the lattice that is employed by $i$-player in its maximal chain employed in the strategy profile. \\
+
+E.g. 
+\[ A_1^1 = (1) \] sempre uguale a 1.  
+\[ A_2^1 = (1,2) \]  $1/2$
+\[ A_3^1 = (1,2,3) \]  $1/4$
+
+
+\paragraph{$u_1(s)$}
 sommatoria di rapporti tra $1$ e il numero di giocatori che hanno usato la facility ...
 \[
-	u_1(s) = 
+	u_1(s) = 1 + \frac{1}{2} + \frac{1}{4} = \frac{7}{4}
 \]
+
  
 
 \subsubsection{Is this a common interest game?}
