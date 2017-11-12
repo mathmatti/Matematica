@@ -3,7 +3,7 @@
 \usepackage{amsmath,amsfonts,amssymb}
 \usepackage[usenames, dvipsnames]{color}
 \usepackage{amsthm}
-\usepackage{mnsymbol}
+%%\usepackage{mnsymbol}
 \usepackage{hyperref}
 
 \newtheorem{defn}{Definition}
@@ -382,7 +382,7 @@ other. If no, then show that for any pair of strategy profiles neither one Paret
 \end{itemize}
 
 \begin{defn}
-	Union $\cup_{j \in N} \mathbb{S}_j$ of all $n$ strategy sets diplays a \emph{bad configuration} if there are two facilities $a, a' \in M$ and three strategies $s, s', s'' \in \cup_{j \in N} \mathbb{S}_j$ such that $a \in s \nowns a'$ and $a \not\in s' \owns a'$ while $a, a' \in s''$ (this indeed may be regarded as an acyclity condition for deviations of non-singleton coalitions, to be compared with the finite improvement property of all potential games). \cite{rossi01}.
+	Union $\cup_{j \in N} \mathbb{S}_j$ of all $n$ strategy sets diplays a \emph{bad configuration} if there are two facilities $a, a' \in M$ and three strategies $s, s', s'' \in \cup_{j \in N} \mathbb{S}_j$ such that $a \in s \not\owns a'$ and $a \not\in s' \owns a'$ while $a, a' \in s''$ (this indeed may be regarded as an acyclity condition for deviations of non-singleton coalitions, to be compared with the finite improvement property of all potential games). \cite{rossi01}.
 \end{defn}
 \begin{itemize}
 	\item non-singleton strategies
@@ -506,20 +506,29 @@ sommatoria di rapporti tra $1$ e il numero di giocatori che hanno usato la facil
  
 
 \subsubsection{Is this a common interest game?}
-\begin{defn}
-	\textcolor{blue}{Common interest games} are those where there is a strategy profile $s^* \in \mathbb{S}$ such that $s^* \gtrsim_i s$ for all $s \in \mathbb{S}$. \cite{rossi01}.
-\end{defn}
-
-Who are the strategy profiles in this game?
+\begin{prop}
+  Per $n \le m$, the game $\Gamma$ is a common interest game. 
+\end{prop}
+\begin{proof}
+ If the proposition is true then exists a strategy profile $s^*$ such that $u_i(s^*) \ge u_i(s)$ for all $s \in S$ and for all players $i \in N$. The strategy profile $s^*$ in which every player choose a different strategy is what we are looking for. 
+\end{proof}
+\begin{prop}
+ Per $n=m!$, $\Gamma$ is not a common interest game.
+\end{prop}
 
 \subsubsection{Is this a constant-sum game?}
+\begin{prop}
+ For $n \le m$ or $n = m!$, $\Gamma$ is not constant-sum game. 
+\end{prop}
+
 
 \subsubsection{Are there Pareto-dominated strategy profiles.}
+Yes, where all players play the same strategy is pareto-dominated either for $n \le m$ or $n = m!$. 
 
 \subsubsection{Characterize the set of equilibria.}
 
 \subsubsection{Characterize the set of strong equilibria}
-
+$E_{\eta}^C(f)$
 \subsubsection{Compute the value $P(s)$ taken by the exact potential $P$ at any equilibrium $s$.}
 
 \subsubsection{Verify whether random strategy profile consisting of $n$ uniform distributions over the $m!$.set $\mathcal{K}$ of maximal chains is an equilibrium or not.}
@@ -537,7 +546,12 @@ Let $f(i)=\left\{\begin{array}{c}
 Compute the discrete Choquet integral $E_{\eta}^C(f)$ of $f$ with respect to fuzzy probability $\eta:2^M\rightarrow[0,1]$ defined by
 $$\eta(A)=\binom{11}{2}^{-2}\left(\sum_{i\in A}i\right)^2\text{ for all }A\in 2^M\text .$$
 
+\subsection{Solution}
+\[ E_{\eta}^C(f) = \sum_{1 \le i \le 10}[f(\omega_i)-f(\omega_{i-1})] \eta (\{\omega_i, ..., \omega_m\}) = \]
 
+\[ = f(\omega_7) = [\eta (\{\omega_7, \ldots, \omega_{10}\}) = \]
+
+\[ = 1[\frac{1}{55^2}(2+3+5+7)^2] = \frac{17^2}{55^2} \simeq 0.096 \]
 \medskip
  
 
